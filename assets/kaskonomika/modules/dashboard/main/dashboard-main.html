@@ -1,0 +1,59 @@
+<div id="dashboard-main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 dashboard-menu">
+                <ng-include src="'/dashboard/menu/dashboard-menu.html'"></ng-include>
+            </div>
+            <div class="col-lg-10 dashboard-body">
+                <div class="row cars-list-area">
+                    <div class="car-item animated bounceInRight _active">
+                        <span class="car-number">E 500 RF 02</span>
+                        <span class="car-name">Ravon Gentra</span>
+                        <span class="car-date">Застрахована до 20.10.2017</span>
+                    </div>
+                    <div class="car-item animated bounceInRight">
+                        <span class="car-number">E 500 RF 02</span>
+                        <span class="car-name">Ravon Gentra</span>
+                        <span class="car-date">Застрахована до 20.10.2017</span>
+                    </div>
+                    <div class="car-item animated bounceInRight">
+                        <span class="car-number">E 500 RF 02</span>
+                        <span class="car-name">Ravon Gentra</span>
+                        <span class="car-date">Застрахована до 20.10.2017</span>
+                    </div>
+                </div>
+                <div class="row values-list-area">
+                    <!-- SCORING -->
+                    <div class="col-lg-3 area-scoring">
+                        <ng-include src="'/dashboard/main/area-scoring.html'"></ng-include>
+                    </div>
+                    <!-- ALL MILAGE -->
+                    <div class="col-lg-3 area-milage">
+                        <ng-include src="'/dashboard/main/area-milage.html'"></ng-include>
+                    </div>
+                    <!-- MY TRIPS -->
+                    <div class="col-lg-3 area-length">
+                        <ng-include src="'/dashboard/main/area-length.html'"></ng-include>
+                    </div>
+                    <!-- TRIPS LENGTH -->
+                    <div class="col-lg-3 area-period">
+                        <ng-include src="'/dashboard/main/area-period.html'"></ng-include>
+                    </div>
+                </div>
+                <div class="row maps-and-alerts">
+                    <!-- MAP-->
+                    <div class="col-lg-8 left-area">
+                        <ng-include src="'/dashboard/main/area-map.html'"></ng-include>
+                    </div>
+                    <!-- ATTENTIONS -->
+                    <div class="col-lg-4 right-area">
+                        <ng-include src="'/dashboard/main/area-attentions.html'"></ng-include>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

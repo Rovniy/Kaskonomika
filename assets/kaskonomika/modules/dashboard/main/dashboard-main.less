@@ -1,0 +1,275 @@
+#dashboard-main {
+  margin: 0;
+  padding: 80px 0 0 0;
+  background: #fff;
+  .container-fluid {
+    .row {
+      .dashboard-menu {
+
+      }
+      .dashboard-body {
+        padding: 0;
+        .cars-list-area {
+          padding: 0 70px;
+          background: linear-gradient(to top, #d3edfa, #c9e0ee);
+
+          overflow: hidden;
+          .car-item {
+            float: left;
+            min-width: 200px;
+            max-height: 95px;
+
+            margin: 50px 5px 0;
+            padding: 15px 20px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background: @color-blue;
+
+            cursor: pointer;
+            transition: .2s ease;
+            span {
+              display: block;
+              color: #fff;
+            }
+            .car-number {
+              font: 11px/15px @fm-web;
+              text-transform: uppercase;
+              text-align: left;
+            }
+            .car-name {
+              font: 20px/27px @fm-bold;
+              text-align: left;
+            }
+            .car-date {
+              font: 14px/23px @fm-light;
+              text-align: left;
+            }
+            &._active {
+              cursor: default;
+              background: #fff;
+
+              span {
+                color: #000;
+              }
+              .car-date {
+                color: @color-darkgrey;
+              }
+
+              &:hover {
+                background: #fff;
+              }
+            }
+            &:hover {
+              transition: .2s ease;
+
+              background: @color-blue-hover;
+            }
+          }
+        }
+        .values-list-area {
+          padding: 25px;
+          background: #fff;
+          .col-lg-3 {
+            border-right: 1px solid #dedede;
+            .area-title {
+              padding: 0;
+              margin: 0 0 15px 0;
+              display: block;
+              width: 100%;
+
+              font: 11px/16px @fm-web;
+              color: @color-darkgrey;
+              text-transform: uppercase;
+              text-align: left;
+            }
+          }
+          .area-scoring {
+            .circle-area {
+              .circle {
+                span {
+                  .value {
+
+                  }
+                  .desc {
+
+                  }
+                }
+              }
+            }
+          }
+          .area-milage {
+
+
+          }
+          .area-length {
+
+          }
+          .area-period {
+
+          }
+        }
+        .maps-and-alerts {
+          padding: 25px;
+          .left-area {
+            .area-title {
+              font: 14px/14px @fm-light;
+              text-align: left;
+              color: @color-darkgrey;
+              margin: 0;
+            }
+            .km-today {
+              font: 20px/20px @fm-main;
+              text-align: left;
+              color: #000;
+              margin: 10px 0;
+              display: block;
+            }
+            .progress {
+              width: 100%;
+              background: @color-grey;
+              height: 5px;
+              border-radius: 5px;
+              margin: 0;
+              .progress-bar {
+                background: @color-blue;
+                box-shadow: none;
+              }
+            }
+            .km-title {
+              margin: 10px 0 0 0;
+              span {
+                font: 14px/14px @fm-main;
+                color: #000;
+
+              }
+            }
+            .consumption-title {
+              font: 14px/23px @fm-light;
+              text-align: center;
+              color: @color-darkgrey;
+              display: block;
+              width: 100%;
+              margin: 20px 0 0 0;
+            }
+            .consumption-val {
+              font: 20px/20px @fm-main;
+              text-align: center;
+              color: #000;
+              display: block;
+              width: 100%;
+              margin: 10px 0;
+            }
+            .maps-and-on-off {
+              border: 1px solid #e5e5e5;
+              border-radius: 5px;
+              margin: 30px 0 0 0;
+              .google-map {
+                padding: 0;
+                ng-map {
+                  height: 250px;
+                }
+
+              }
+              .on-off-area {
+                text-align: center;
+                padding: 15px;
+                .status-area{
+                  display: block;
+                  width: 100%;
+                  margin: 0 0 50px 0;
+                  span {
+                    font: 11px/16px @fm-web;
+                    color: #858585;
+                    text-transform: uppercase;
+                    text-align: left;
+
+                  }
+                }
+                .address-area {
+                  text-align: center;
+                  .address-title {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    font: 14px/23px @fm-light;
+                    color: #858585;
+                  }
+                  .address-val {
+                    font: 16px/25px @fm-main;
+                    text-align: center;
+                    color: #000;
+                    margin: 0 0 50px 0;
+                    display: block;
+                  }
+                  .btn-kasko {
+                    margin: 0 auto;
+                  }
+                }
+              }
+            }
+          }
+          .right-area {
+            .attentions {
+              padding: 0;
+              .item {
+                list-style: none;
+                background: #dedede;
+                border-bottom: 1px solid #cacaca;
+                padding: 15px;
+                &:last-child {
+                  cursor: pointer;
+                  border: none;
+                  border-bottom-left-radius: 5px;
+                  border-bottom-right-radius: 5px;
+                  transition: .32s ease;
+                  .item-last {
+                    font: 16px/16px @fm-main;
+                    color: #000;
+                    text-align: center;
+                    display: block;
+                    margin: 0 auto;
+                    &:hover {
+                      text-decoration: none;
+                    }
+                    &:focus {
+                      text-decoration: none;
+                      outline: none;
+                    }
+                  }
+                  &:hover {
+                    background: @color-blue-hover;
+                    transition: .32s ease;
+                    span {
+                      color: #fff;
+                    }
+                  }
+                }
+                &:first-child {
+                  border-top-left-radius: 5px;
+                  border-top-right-radius: 5px;
+                }
+                span {
+                  display: block;
+                  width: 100%;
+                }
+                .item-title {
+                  font: 11px/20px @fm-main;
+                  color: @color-darkgrey;
+                  text-transform: uppercase;
+                }
+                .item-msg {
+                  font: 16px/20px @fm-main;
+                  color: #000;
+                }
+                .item-car {
+                  font: 14px/20px @fm-web;
+                  color: #000;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

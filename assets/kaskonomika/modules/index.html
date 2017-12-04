@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='kaskonomika'>
+    <head>
+        <base href="/">
+        <meta charset="UTF-8">
+        <title>Каскономика – расчет Каско по страховым компаниям Москвы</title>
+        <link rel="shortcut icon" href="/src/img/base/favicon.png">
+
+        <!-- Утилиты адаптивности страницы -->
+        <meta name='viewport' content='width=device-width,initial-scale=1'/>
+        <meta content='true' name='HandheldFriendly'/>
+        <meta content='width' name='MobileOptimized'/>
+        <meta content='yes' name='apple-mobile-web-app-capable'/>
+
+        <!-- Подключение стилей -->
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Подключение скриптов -->
+        <script src="/src/js/vendor.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/templates.js"></script>
+
+        <!-- Подключение аналитик и визоров -->
+        @@include('../core/includes/yandex.html')
+        @@include('../core/includes/googleanalitics.html', {"goId": "UA-82308901-1"})
+        @@include('../core/includes/google.maps.html', {"googleApiKey": "AIzaSyDR7lYrfjX9vtetK8NwJc-QYNLo_5ECs44"})
+    </head>
+
+    <body ng-controller="appController" class="animated">
+        <div id="wrap">
+
+            <!-- Подключение HEADER -->
+            @@include('../modules/header/header.html')
+
+            <!-- Тело контента -->
+            <ng-view autoscroll="true"></ng-view>
+
+            <!-- Подключение FOOTER -->
+            @@include('../modules/footer/footer.html')
+        </div>
+    </body>
+</html>

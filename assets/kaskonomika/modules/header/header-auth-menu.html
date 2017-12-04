@@ -1,0 +1,89 @@
+<div class="auth-bg animated"ng-class="{'fadeIn':vm.authOpen, 'fadeOut':!vm.authOpen }"  ng-click="vm.authOpen = false"></div>
+<div class="auth-menu col-lg-3 col-md-3 col-sm-6 col-xs-12 pull-right animated" ng-class="{'slideInRight':vm.authOpen, 'slideOutRight':!vm.authOpen }">
+    <div class="login-form animate bounceInRight" ng-if="!vm.showRecover">
+        <div class="row title-area">
+            <span>Личный кабинет</span>
+            <i class="fa fa-close fa-2x pull-right" ng-click="vm.authOpen = false"></i>
+        </div>
+        <div class="forms-area">
+            <div class="form-group" ng-class="{'has-error':vm.LoginError}">
+                <label for="userLoginInput">Номер телефона или эл. почта</label>
+                <input type="text" class="form-control input-lg" id="userLoginInput" ng-model="vm.userLoginInput"/>
+            </div>
+            <div class="form-group" ng-class="{'has-error':vm.LoginError}">
+                <label for="userPassInput">Пароль</label>
+                <input type="password" class="form-control input-lg" id="userPassInput" ng-model="vm.userPassInput"/>
+                <div class="errors-area">
+                    <span class="error-text color-red" ng-if="vm.LoginError">Неверно введен номер телефона или эл. почта. Быть может, введен введён пароль!</span>
+                </div>
+            </div>
+            <div class="form-group fix-height-17">
+                <span class="pull-right go-repair-pass" ng-click="vm.showRecover = !vm.showRecover">Забыл пароль</span>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-kasko" ng-click="vm.login()" ng-disabled="!vm.userPassInput || !vm.userLoginInput">Войти</button>
+            </div>
+        </div>
+    </div>
+    <div class="recover-form animate bounceInRight" ng-if="vm.showRecover">
+        <div class="row title-area">
+            <span ng-click="vm.showRecover = false"><i class="fa fa-angle-left"></i> Вернуться к авторизации</span>
+            <i class="fa fa-close fa-2x pull-right" ng-click="vm.authOpen = false"></i>
+        </div>
+        <div class="row repair-title-area">
+            <span class="repair-title">Восстановление пароля</span>
+            <span ng-if="!vm.recoverEmail" class="repair-desc">Введите номер телефона и мы вышлем вам пароль по SMS. Запомните его и никому не говорите. Его необходимо будет сменить в личном кабинете в течении 10 минут.</span>
+            <span ng-if="vm.recoverEmail" class="repair-desc">Введите адресс эл. почти и мы вышлем на него код подтверждения, необходимый для смены пароля</span>
+        </div>
+        <div class="row repair-title-area" ng-if="!vm.recoverEmail">
+            <div class="form-group">
+                <label for="repairPhoneInput">Номер телефона</label>
+                <input type="text" class="form-control input-lg" id="repairPhoneInput" ng-model="vm.repairPhoneInput"/>
+                <div class="errors-area">
+                    <span class="error-text" ng-if="vm.repairPhoneError">Неверный номер телефона!</span>
+                </div>
+            </div>
+        </div>
+        <div class="row repair-title-area" ng-if="vm.recoverEmail">
+            <div class="form-group">
+                <label for="repairEmailInput">Электронная почта</label>
+                <input type="text" class="form-control input-lg" id="repairEmailInput" ng-model="vm.repairEmailInput"/>
+                <div class="errors-area">
+                    <span class="error-text" ng-if="vm.repairEmailError">Неверная электронная почта</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-kasko" ng-click="vm.login()">Отправить</button>
+        </div>
+        <div class="ta-center switch-method">
+            <span ng-if="!vm.recoverEmail" ng-click="vm.recoverEmail = !vm.recoverEmail">Восстановить через электронную почту</span>
+            <span ng-if="vm.recoverEmail" ng-click="vm.recoverEmail = !vm.recoverEmail">Восстановить через номер телефона</span>
+        </div>
+
+    </div>
+    <div class="auth-footer">
+        <div class="row reg-row">
+            <span ng-click="vm.goToRegistration()" class="reg-title">Зарегистрироваться</span>
+        </div>
+        <div class="row app-area">
+            <div class="col-lg-6">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://appsto.re/ru/QaWWgb.i" target="_blank">
+                            <i class="fa fa-apple fa-3x"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://play.google.com/store/apps/details?id=ru.kaskonomika.kaskonomika" target="_blank">
+                            <i class="fa fa-android fa-3x"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <span>Скачать приложение "Каскономика" бесплатно</span>
+            </div>
+        </div>
+    </div>
+</div>

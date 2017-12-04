@@ -1,0 +1,33 @@
+<div id="losses-page">
+    <div class="row card">
+        <h1>Убытки и все, что с ними связано</h1>
+        <div class="ta-center p-20" ng-if="!vm.lossesList && !vm.error">
+            <i class="fa fa-spin fa-circle-o-notch fa-2x"></i>
+        </div>
+        <div ng-if="vm.lossesList && !vm.error">
+            <table class="table table-striped tr-hover table-bordered">
+                <thead>
+                <tr>
+                    <th sort order="'external_number'" by="order" reverse="reverse">Номер</th>
+                    <th sort order="'losses_applications_status'" by="order" reverse="reverse">Статус</th>
+                    <th sort order="'create_date'" by="order" reverse="reverse">Дата создания</th>
+                    <th sort order="'event_date'" by="order" reverse="reverse">Дата происшествия</th>
+                    <th sort order="2" by="order" reverse="reverse">Номер полиса</th>
+                    <th sort order="3" by="order" reverse="reverse">Страховая компания</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(key,row) in vm.lossesList | orderBy:order:reverse">
+                    <td>{{row.external_number}}</td>
+                    <td>{{row.losses_applications_status}}</td>
+                    <td>{{row.create_date}}</td>
+                    <td>{{row.event_date}}</td>
+                    <td>{{row.policy_number}}</td>
+                    <td>{{row.insurance_company}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <http-error></http-error>
+    </div>
+</div>

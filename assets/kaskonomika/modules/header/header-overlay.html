@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="menu-area pull-left col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <div class="logo-area animated" ng-class="{fadeIn: vm.openOverlay, fadeOut: !vm.openOverlay}">
+            <ul class="list-inline noselect">
+                <li class="sub-menu-icon noselect">
+                    <i class="fa fa-times fa-2x noselect" ng-click="vm.openOverlay = !vm.openOverlay"></i>
+                </li>
+                <li class="sub-menu-logo noselect">
+                    <a href="/" class="noselect hidden-xs"><img src="/src/img/base/logo-sm.png"/></a>
+                    <span class="visible-xs sub-menu-logo-mobile">+7 499 550-00-09</span>
+                </li>
+            </ul>
+        </div>
+        <div class="overlay-menu-area animated" ng-class="{fadeIn: vm.openOverlay, fadeOut: !vm.openOverlay}">
+            <div class="overlay-main-menu hidden-lg">
+                <ul>
+                    <li ng-repeat="item in vm.mainMenu track by $index" class="animated" ng-class="{slideInLeft: vm.openOverlay, slideOutLeft: !vm.openOverlay}">
+                        <a href="{{::item.url}}" ng-click="vm.openOverlay = !vm.openOverlay">{{::item.text}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="overlay-sub-menu animated" ng-class="{slideInLeft: vm.openOverlay, slideOutLeft: !vm.openOverlay}">
+                <ul>
+                    <li ng-repeat="item in vm.subMenu track by $index">
+                        <a href="{{::item.url}}" ng-click="vm.openOverlay = !vm.openOverlay">{{::item.text}}</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="click-outside-area pull-left col-lg-9 col-md-6 col-sm-6 hidden-xs noselect animated" ng-click="vm.openOverlay = !vm.openOverlay"  ng-class="{fadeIn: vm.openOverlay, fadeOut: !vm.openOverlay}"></div>
+</div>

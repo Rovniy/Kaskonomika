@@ -1,0 +1,16 @@
+<h3 class="area-title">У вас осталось</h3>
+<div class="circle-area">
+    <!--Pie Chart -->
+    <div class="progress-pie-chart" ng-class="{'gt-50' : vm.dashboard.milage.raw > 50}">
+        <div class="ppc-progress">
+            <div class="ppc-progress-fill" ng-style="{'transform' : 'rotate('+ 260* vm.dashboard.milage.raw / 100 +'deg)'}"></div>
+        </div>
+        <div class="ppc-percents">
+            <div class="pcc-percents-wrapper">
+                    <span class='value'>{{vm.dashboard.milage.val}} км.<br/>
+                    <small>Застрахованных до 20 Октября</small></span>
+            </div>
+        </div>
+    </div>
+    <!--End Chart -->
+</div>

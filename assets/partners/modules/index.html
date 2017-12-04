@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='partners'>
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="shortcut icon" href="/src/img/base/favicon.png">
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <title>Каскономика</title>
+
+    @@include('../core/js/includes/google-maps.html')
+
+    <script src="/src/js/vendor.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/templates.js"></script>
+</head>
+<body class="sidebar-mini fixed"
+      ng-controller="appController"
+      ng-class="{'sidebar-collapse' : offcanvas}">
+<div class="wrapper">
+
+    @@include('../modules/header/header.html')
+
+    @@include('../modules/sidebar/sidebar.html')
+
+    <div class="content-wrapper" ng-class="{'wrapper-clean' : isIndexPage}">
+        <div ng-if="!isIndexPage" breadcrumbs></div>
+        <ng-view autoscroll="true"></ng-view>
+        @@include('../modules/footer/footer.html')
+    </div>
+</div>
+
+
+</body>
+</html>

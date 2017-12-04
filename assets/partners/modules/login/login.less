@@ -1,0 +1,135 @@
+/**
+ * Created by Ravy on 22.03.2017.
+ */
+.material-half-bg {
+  height: 100vh;
+
+  background-color: @color_4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  .cover {
+    background: url('/src/img/backgrounds/dog_3.png') right bottom  / 40%  no-repeat,
+                url('/src/img/backgrounds/pre_dog_3.png') 100% 100% / contain  no-repeat scroll padding-box content-box @color_10;
+    height: 50vh;
+  }
+}
+
+.login-content {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 100vh;
+  .logo {
+    margin-bottom: 40px;
+    font-family: @font_family_4;
+    color: @color_4;
+    img {
+      width:300px;
+    }
+  }
+}
+
+.login-box {
+  position: relative;
+  min-width: 350px;
+  min-height: 390px;
+  background-color: @background_color_1;
+  box-shadow: 0px 29px 147.5px 102.5px rgba(0, 0, 0, 0.05), 0px 29px 95px 0px rgba(0, 0, 0, 0.16);
+  perspective: 800px;
+  transition: all 0.5s ease-in-out;
+  .login-head {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  label {
+    color: @color_1;
+  }
+  .utility {
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1px;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .btn-container {
+    margin-bottom: 0;
+  }
+  .login-form {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    backface-visibility: hidden;
+    transition: all 0.5s ease-in-out;
+    .restore-pass {
+      margin: 20px 0 0 0;
+    }
+  }
+  .forget-form {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    backface-visibility: hidden;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    transform: rotateY(180deg);
+  }
+}
+
+.login-box.flipped {
+  min-height: 300px;
+  .login-form {
+    opacity: 0;
+    transform: rotateY(-180deg);
+  }
+  .forget-form {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 10px;
+  }
+  .page-title {
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .main-header {
+    .top-nav {
+      margin-right: 20px;
+    }
+  }
+}
+@media (max-width: 351px) {
+  .login-content {
+    .login-box {min-width: 100%;}
+    .login-form {width: 100%;}
+    .forget-form {width: 100%;}
+  }
+}

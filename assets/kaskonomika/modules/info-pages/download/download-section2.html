@@ -1,0 +1,32 @@
+<div class="container-fluid" ng-class="{white: vm.phone==1, blue:vm.phone==2,red: vm.phone==3}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 phone-area">
+                <img class="phone" ng-if="vm.phone == 1" src="/src/img/sliders/download-slider/download-section2-phone-1.png"/>
+                <img class="phone" ng-if="vm.phone == 2" src="/src/img/sliders/download-slider/download-section2-phone-2.png"/>
+                <img class="phone" ng-if="vm.phone == 3" src="/src/img/sliders/download-slider/download-section2-phone-3.png"/>
+                <img ng-click="vm.phone == 1 ? vm.phone=3 : vm.phone=vm.phone-1; vm.clearIntervalSlider()" class="btn-absolute btn-left" src="/src/img/base/common/slide-button.png"/>
+                <img ng-click="vm.phone == 3 ? vm.phone=1: vm.phone=vm.phone+1; vm.clearIntervalSlider()" class="btn-absolute btn-right" src="/src/img/base/common/slide-button.png"/>
+            </div>
+            <div class="col-lg-7 text-area">
+                <h1>У нас хорошее приложение</h1>
+                <div class="row">
+                    <p>Наше приложение позволяет пользоваться всеми сервисами, разработанными для наших клиентов, а так же получать всю необходимую информацию, в любое время, где бы вы не находились.</p>
+                </div>
+                <div class="row">
+                    <p>Совершайте поездки в привычной для вас манере и наблюдайте как меняется оценка вашего вождения. Если возникает необходимость, мы всегда подскажем, как ее улучшить, через мобильное приложение.</p>
+                </div>
+                <div class="row">
+                    <p>Наступил страховой случай? Мы оперативно вам покажем. Свяжитесь со специалистом через приложение!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row pointers-area">
+            <div class="pointers">
+                <div class="pointer animated" ng-class="{active: vm.phone==1}" ng-click="vm.phone=1"></div>
+                <div class="pointer animated" ng-class="{active: vm.phone==2}" ng-click="vm.phone=2"></div>
+                <div class="pointer animated" ng-class="{active: vm.phone==3}" ng-click="vm.phone=3"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,306 @@
+/**
+ * Created by Ravy on 22.03.2017.
+ */
+.main-header {
+  border-bottom: 1px solid @color_13;
+  .navbar {
+    background-color: @color_6;
+    .top-nav {
+      >li {
+        >a {
+          color: @color_9;
+          &:hover {
+            background: @color_13;
+            color: @color_6;
+          }
+          &:active {
+            background: @color_13;
+            color: @color_6;
+          }
+          &:focus {
+            background: @color_13;
+            color: @color_6;
+          }
+        }
+      }
+      .open {
+        >a {
+          background: @color_13;
+          color: @color_6;
+          &:hover {
+            background: @color_13;
+            color: @color_6;
+          }
+          &:focus {
+            background: @color_13;
+            color: @color_6;
+          }
+        }
+      }
+      >.active {
+        >a {
+          background: rgba(0,0,0,0.1);
+          color: @color_6;
+        }
+      }
+    }
+    .sidebar-toggle {
+      color: @color_9;
+      &:hover {
+        color: @color_4;
+        background-color: @color_13;
+      }
+    }
+    > a {
+      text-decoration: none;
+      &:hover, &:active, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 48vw;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    overflow: hidden;
+    text-decoration: none;
+    img {
+      display: block;
+      height: 40px;
+    }
+  }
+  position: relative;
+  max-height: 100px;
+  z-index: 1030;
+  >.navbar {
+    position: relative;
+    margin-bottom: 0;
+    /*margin-left: 230px;*/
+    border: none;
+    max-height: 50px;
+    border-radius: 0;
+  }
+  .sidebar-toggle {
+    float: left;
+    background-color: @background_color_9;
+    background-image: none;
+    padding: 11px 16px;
+    font-family: @font_family_3;
+    position: relative;
+    transition: all 0.3s ease;
+    max-height: 50px;
+    &:before {
+      content: "\f0c9";
+      font-size: 21px;
+    }
+    &:focus {
+      background: transparent;
+    }
+    &:active {
+      background: transparent;
+    }
+  }
+  .navbar-brand {
+    color: @color_4;
+  }
+  .top-nav {
+    list-style: none;
+    padding-left: 0;
+    display: inline-block;
+    float: right;
+    margin-bottom: 0;
+    margin-right: 0;
+    >li {
+      display: block;
+      position: relative;
+      float: left;
+      >a {
+        display: block;
+        padding: 10px 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        line-height: 20px;
+      }
+      >.user-profile {
+        padding: 5px 15px;
+        text-decoration: none;
+        img {
+          height: 40px;
+          width: 40px;
+          margin: 0 10px 0 0;
+        }
+        &:hover,&:focus {
+          text-decoration: none;
+          outline: none;
+        }
+      }
+    }
+    .settings-menu {
+      li {
+        a {
+          font-weight: 500;
+          text-transform: none;
+        }
+      }
+    }
+    .notification-menu {
+      .dropdown-menu {
+        min-width: 230px;
+        i {
+          width: auto;
+        }
+        .fa-stack {
+          text-align: center;
+        }
+        .fa-stack-1x {
+          width: 100%;
+        }
+        .fa-stack-2x {
+          width: 100%;
+          font-size: 2em;
+        }
+      }
+      .media {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        .block {
+          &:not(.text-muted) {
+            font-weight: 500;
+          }
+        }
+      }
+      .not-head {
+        padding: 8px 20px;
+        text-align: center;
+        font-weight: 500;
+        background-color: @background_color_10;
+        color: @color_2;
+      }
+      .not-footer {
+        text-align: center;
+        background-color: @background_color_11;
+      }
+    }
+  }
+}
+.user {
+  .profile {
+    margin: -30px -30px 0 -30px;
+    display: -ms-flexbox;
+    display: flex;
+    .info {
+      padding: 30px 60px;
+      text-align: center;
+      background-color: @background_color_1;
+      white-space: nowrap;
+      background-color: @background_color_21;
+      color: @color_4;
+      img {
+        border-radius: 50%;
+        max-width: 110px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+      }
+    }
+    .cover-image {
+      -ms-flex: 1;
+      flex: 1;
+      background-image: url(http://placeimg.com/1200/300/nature);
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  .user-tabs {
+    margin-top: 20px;
+    >li.active {
+      >a {
+        border-left: 3px solid #673AB7;
+        border-bottom: 0;
+        background-color: @background_color_11 !important;
+      }
+    }
+    >li {
+      >a {
+        border-left: 3px solid transparent;
+        padding: 12px 15px;
+        border-bottom: 0;
+        font-size: 15px;
+        &:hover {
+          background-color: @background_color_11 !important;
+          border-bottom: 0;
+        }
+        &:active {
+          background-color: @background_color_11 !important;
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+  .tab-content {
+    margin: 20px -10px -10px;
+  }
+  .timeline {
+    .post {
+      background-color: @background_color_1;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+      .post-media {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        img {
+          margin-right: 10px;
+        }
+        h5 {
+          margin-top: 0;
+          margin-bottom: 3px;
+          font-size: 15px;
+        }
+      }
+      .post-content {
+        margin-bottom: 20px;
+      }
+      .post-utility {
+        display: -ms-flexbox;
+        display: flex;
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+        .likes {
+          margin-right: 10px;
+          a {
+            color: @color_5;
+          }
+        }
+        .shares {
+          margin-right: 10px;
+          a {
+            color: @color_5;
+          }
+        }
+        .comments {
+          color: @color_5;
+          -ms-flex: 1;
+          flex: 1;
+          text-align: right;
+        }
+      }
+    }
+  }
+  .user-settings {
+    .line-head {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: @color_9;
+    }
+    label {
+      color: @color_1;
+    }
+  }
+}

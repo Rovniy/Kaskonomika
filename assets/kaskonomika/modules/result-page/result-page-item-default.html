@@ -1,0 +1,35 @@
+<div class="item item-default animated bounceIn">
+    <div class="row top-area">
+        <div class="col-lg-2 col-md-2 hidden-sm hidden-xs col">
+            <img class="issure-logo" src="/src/img/partners/kaskonomika.jpg"/>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col p-top-n">
+                <div class="item-title-area">
+                    <span ng-if="!vm.userPhone.success">НЕ НАШЛОСЬ ПОДХОДЯЩЕГО ВАРИАНТА?</span>
+                    <span ng-if="vm.userPhone.success">СПАСИБО ЗА ВАШЕ ОБРАЩЕНИЕ!</span>
+                </div>
+                <div class="item-cost-area">
+                    <div class="cost-item">
+                        <h3 ng-if="!vm.userPhone.success">Отправьте нам заявку и мы расчитаем стоимость КАСКО у других страховых компаний.</h3>
+                        <h3 ng-if="vm.userPhone.success">Мы вскоре свяжемся с вами и поможем найти подходящий вариант страховки.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 col">
+            <button ng-if="!vm.userPhone.success" ng-click="vm.switchDefaultPopover()" class="issue-btn">Отправить</button>
+        </div>
+    </div>
+    <div class="popover-area _default" ng-if='vm.userPhone.popover && !vm.userPhone.success'>
+        <h4 class="popover-item-title">ОСТАВЬТЕ НОМЕР ТЕЛЕФОНА, ЧТОБЫ МЫ МОГЛИ СВЯЗАТЬСЯ С ВАМИ</h4>
+        <div class="row">
+            <div class="col-lg-4" ng-class="{'has-error' : vm.userPhone.error}">
+                <input type="text" class="form-control" ng-model="vm.userPhone.phone" placeholder="+7 XXX XXX XX XX" cleave="vm.userPhone.cleave"/>
+            </div>
+            <div class="col-lg-8 animated fadeIn error-phone" ng-if="vm.userPhone.error">
+                <span>Номер телефона введен в неверном формате, номер должен начинаться с +7</span>
+            </div>
+        </div>
+    </div>
+</div>

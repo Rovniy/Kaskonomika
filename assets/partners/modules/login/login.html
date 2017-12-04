@@ -1,0 +1,61 @@
+<section class="material-half-bg">
+    <div class="cover"></div>
+</section>
+<section class="login-content">
+    <div class="logo">
+        <a class="logo" href="index.html">
+            <img src="/src/img/base/logo-sm.png"/>
+        </a>
+    </div>
+    <div class="login-box">
+        <form class="login-form">
+            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-dashboard"></i> Личный кабинет</h3>
+            <div class="form-group"
+                 uib-tooltip="{{vm.error}}"
+                 tooltip-enable="vm.error"
+                 tooltip-is-open="vm.error.length > 0"
+                 ng-class="{'has-error' : vm.error.length > 0}">
+                <label class="control-label">Логин или электронная почта</label>
+                <input class="form-control" type="text" ng-model="vm.loginEmail" ng-change="vm.error = null" placeholder="example@example.com" autofocus>
+            </div>
+            <div class="form-group" ng-class="{'has-error' : vm.error.length > 0}">
+                <label class="control-label">Пароль</label>
+                <input class="form-control" type="password" ng-model="vm.loginPass" ng-change="vm.error = null" placeholder="********">
+            </div>
+            <div class="form-group">
+                <div class="utility">
+                    <div class="animated-checkbox">
+                        <label class="semibold-text">
+                            <input type="checkbox" ng-model="vm.loginRemember"><span class="label-text">Оставать в сети</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group btn-container">
+                <button class="btn btn-primary btn-block" ng-click="vm.login()">Вход <i class="fa fa-sign-in fa-lg"></i></button>
+            </div>
+            <div class="ta-center restore-pass">
+                <p class="semibold-text mb-0"><a id="toFlip" href ng-click="vm.lookAtRestoreAddress()">Забыли пароль?</a></p>
+            </div>
+        </form>
+        <form class="forget-form">
+            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>Забыли пароль?</h3>
+            <div class="form-group"
+                 uib-tooltip="{{vm.restoreTextError}}"
+                 tooltip-enable="vm.restoreTextError"
+                 tooltip-is-open="vm.restoreTextError">
+                <label class="control-label">Электронная почта или телефон</label>
+                <input class="form-control"
+                       type="text"
+                       ng-model="vm.restoreEmail"
+                       placeholder="79581234567">
+            </div>
+            <div class="form-group btn-container">
+                <button class="btn btn-primary btn-block" ng-disabled="!vm.restoreBtnReady" ng-click="vm.restore()">Восстановить пароль <i class='fa fa-unlock fa-lg'></i></button>
+            </div>
+            <div class="form-group mt-20">
+                <p class="semibold-text mb-0"><a id="noFlip" href="#"><i class="fa fa-angle-left fa-fw"></i> Назад ко входу</a></p>
+            </div>
+        </form>
+    </div>
+</section>

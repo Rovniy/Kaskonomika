@@ -1,0 +1,187 @@
+<div ng-controller="carFinderController as vm" class="car-finder-area">
+    <div class="row region-steps">
+        <div class="col-lg-5 region-area">
+            <span>Москва и московская область</span>
+        </div>
+        <div class="col-lg-7">
+            <div class="steps-area">
+                <div class="row title-area">
+                    <div class="col-xs-3">
+                        <span class="active"
+                              ng-click="findData.step > 4 ? vm.resetFinder({mark:' ',year:' ',model:' ',mod:' ',driver:' ',age:' ', exp:' '},1) : null">
+                            Автомобиль
+                        </span>
+                    </div>
+                    <div class="col-xs-3">
+                        <span ng-class="{active: findData.step > 4}"
+                              ng-click="findData.step >= 5 && findData.step <= 8 ? vm.resetFinder({driver:' ',age:' ', exp:' '},5) : null">
+                            Водители
+                        </span>
+                    </div>
+                    <div class="col-xs-3">
+                        <span ng-class="{active: findData.step > 8}">Предложения</span>
+                    </div>
+                    <div class="col-xs-3">
+                        <span ng-class="{active: findData.step > 9}">Оформление</span>
+                    </div>
+                </div>
+                <div class="row steps-progress">
+                    <!-- 0% - 33% -- 66% --- 100% -->
+                    <progress class="progress" max="100" value="{{vm.progressWidth()}}"></progress>
+                    <div class="pointers">
+                        <div class="col-xs-2 circle-area">
+                            <span class="circle active"></span>
+                        </div>
+                        <div class="col-xs-4 circle-area">
+                            <span class="circle" ng-class="{active: findData.step > 4}"></span>
+                        </div>
+                        <div class="col-xs-4 circle-area">
+                            <span class="circle" ng-class="{active: findData.step > 8}"></span>
+                        </div>
+                        <div class="col-xs-2 circle-area">
+                            <span class="circle" ng-class="{active: findData.step > 9}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row title-h1-area">
+        <h1 ng-if="findData.step != 11">Результаты расчета Каско</h1>
+        <h1 ng-if="findData.step == 11">Детальный расчет</h1>
+    </div>
+    <div class="input-area" ng-if="findData.step != 11">
+        <div class="form-inline noselect">
+            <div class="input-line" ng-click="findData.step < 8 ? findData.is_open = true : null">
+                <div ng-show="findData.step < 5">
+                    <div class="tag mark" ng-if="findData.mark">
+                        {{findData.mark.mark}}
+                        <i class="fa fa-close" ng-click="vm.resetFinder({mark:' ',year:' ',model:' ',mod:' '},1)"></i>
+                    </div>
+                    <div class="tag year" ng-if="findData.year">
+                        {{findData.year}}
+                        <i class="fa fa-close" ng-click="vm.resetFinder({year:' ',model:' ',mod:' '},2)"></i>
+                    </div>
+                    <div class="tag model" ng-if="findData.model">
+                        {{findData.model.model}}
+                        <i class="fa fa-close" ng-click="vm.resetFinder({model:' ',mod:' '},3)"></i>
+                    </div>
+                    <div class="tag mod" ng-if="findData.mod">
+                        {{findData.mod.modification}}
+                        <i class="fa fa-close" ng-click="vm.resetFinder({mod:' '},4)"></i>
+                    </div>
+                </div>
+                <div ng-show="findData.step >= 5">
+                    <div class="tag driver" ng-if="findData.driver">
+                        {{findData.driver.name}}
+                        <i class="fa fa-close" ng-click="vm.resetFinder({driver:' ',age:' ',exp:' '},5)"></i>
+                    </div>
+                    <div class="tag age" ng-if="findData.age">
+                        {{findData.age}} {{::vm.ageTitle(findData.age)}}
+                        <i class="fa fa-close" ng-click="vm.resetFinder({age:' ',exp:' '},6)"></i>
+                    </div>
+                    <div class="tag exp" ng-if="findData.exp">
+                        {{::vm.expTitle(findData.exp)}}
+                        <i class="fa fa-close" ng-click="vm.resetFinder({exp:' '},7)"></i></div>
+                </div>
+                <div class="tag title" ng-if="!vm.wait">
+                    <span ng-if="findData.step == 1">Марка автомобиля...</span>
+                    <span ng-if="findData.step == 2">Год выпуска...</span>
+                    <span ng-if="findData.step == 3">Модель...</span>
+                    <span ng-if="findData.step == 4">Модификаци...</span>
+                    <span ng-if="findData.step == 5">Количество водителей...</span>
+                    <span ng-if="findData.step == 6">Возраст...</span>
+                    <span ng-if="findData.step == 7">Стаж с...</span>
+                    <span ng-if="findData.step > 7"></span>
+                </div>
+                <div class="tag waiter" ng-if="vm.wait">
+                    <i class="fa fa-spin fa-refresh"></i>
+                </div>
+            </div>
+            <div class="button-line">
+                <button class="btn btn-result" ng-disabled="!findData.ready" ng-click="vm.findResults()">
+                    <span class="btn-title-1">Рассчитать каско</span>
+                    <span class="btn-title-2">Рассчитать</span>
+                </button>
+            </div>
+        </div>
+        <div class="row popover-area animated"
+             ng-class="{flipInX: findData.is_open, bounceOut: !findData.is_open}"
+             ng-show="findData.is_open">
+            <div class="popover-text popover-mark" ng-if="findData.step === 1">
+                <div class="block-inline"
+                     ng-repeat="row in allData.marks track by $index"
+                     ng-if="row.is_popular_mark == 1 || showAll"
+                     ng-click="vm.getYear(row.mark); findData.mark = row">
+                    {{row.mark}}
+                </div>
+                <div class="show-more" ng-show="!showAll">
+                    <span ng-click="showAll = !showAll">Показать все марки</span>
+                </div>
+            </div>
+            <div class="popover-text popover-year" ng-if="findData.step === 2">
+                <div class="block-inline"
+                     ng-repeat="row in allData.year track by $index"
+                     ng-click="vm.getModels(row); findData.year = row">
+                    {{row}}
+                </div>
+            </div>
+            <div class="popover-text popover-model" ng-if="findData.step === 3">
+                <div class="block-inline"
+                     ng-repeat="row in allData.models track by $index"
+                     ng-click="vm.getModification(row.model); findData.model = row">
+                    {{row.model}}
+                </div>
+            </div>
+            <div class="row popover-text popover-mod" ng-if="findData.step === 4">
+                <div class="block-list"
+                     ng-repeat="row in allData.mods track by $index"
+                     ng-click="vm.getDrivers(); findData.mod = row">
+                    {{row.modification}} / {{row.generation}}
+                </div>
+            </div>
+            <div class="popover-text popover-driver" ng-if="findData.step === 5">
+                <div class="block-list"
+                     ng-repeat="row in allData.drivers track by $index"
+                     ng-click="vm.getAges(); findData.driver = row">
+                    {{row.name}}
+                </div>
+            </div>
+            <div class="popover-text popover-age" ng-if="findData.step === 6">
+                <div class="block-inline"
+                     ng-repeat="row in allData.age track by $index"
+                     ng-click="vm.getExp(row); findData.age = row">
+                    {{row}}
+                </div>
+            </div>
+            <div class="popover-text popover-exp" ng-if="findData.step === 7">
+                <div class="block-inline"
+                     ng-repeat="row in allData.exp track by $index"
+                     ng-click="vm.finalStep(); findData.exp = row">
+                    {{row}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="docs-area" ng-if="findData.step == 11">
+        <h3>Сейчас вам потребуются данные из следующих документов</h3>
+        <div class="row docs-list">
+            <div class="col-lg-6 docs-item">
+                <i class="fa fa-check color-blue"></i>
+                <span>Паспорт транспортного средства или свидетельство о регистрации автомобиля</span>
+            </div>
+            <div class="col-lg-6 docs-item">
+                <i class="fa fa-check color-blue"></i>
+                <span>Паспорт лица, на которого оформляется полис</span>
+            </div>
+            <div class="col-lg-6 docs-item">
+                <i class="fa fa-check color-blue"></i>
+                <span>Паспорт собственника автомобиля (1‑я страница и прописка)</span>
+            </div>
+            <div class="col-lg-6 docs-item">
+                <i class="fa fa-check color-blue"></i>
+                <span>Водительское удостоверение лица, допущенного к управлению автомобилем</span>
+            </div>
+        </div>
+    </div>
+</div>

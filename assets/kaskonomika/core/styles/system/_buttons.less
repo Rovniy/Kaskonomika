@@ -1,0 +1,195 @@
+.btn-kasko {
+  background: @color-blue;
+  display: block;
+  border-radius: 80px;
+  vertical-align: middle;
+  text-align: center;
+  max-width: 350px;
+  padding: 0 30px;
+  transition: .2s ease;
+  border: none;
+  height: 40px;
+  min-width: 180px;
+  color: #fff;
+  font: 16px/40px @fm-light;
+  margin: 0 auto;
+  span {
+    color: #fff;
+    font: 14px/40px @fm-light;
+    vertical-align: middle;
+  }
+  i {
+    color: #fff;
+    font-size: 20px;
+    vertical-align: top;
+    line-height: 40px;
+  }
+  &:hover {
+    transition: .2s ease;
+    background: @color-blue-hover;
+    outline: none;
+    border: none;
+    color: #fff;
+    span {
+      color: #fff;
+      font: 14px/40px @fm-light;
+      vertical-align: middle;
+    }
+  }
+  &:active {
+    &:focus {
+      outline: none;
+      border: none;
+    }
+  }
+  &:focus, &:visited, &:active {
+    outline: none;
+    border: none;
+  }
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+
+.custom-checkbox {
+  label {
+    cursor: pointer;
+    span {
+      padding-left: 10px;
+      display: block;
+      font: 14px/20px @fm-web;
+    }
+    &:before {
+      content: '';
+      background-color: #DADADA;
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 5px;
+    }
+    &:after {
+      top: 7px;
+      left: 4px;
+    }
+    &:hover:before {
+      background-color: @color-blue;
+    }
+  }
+  input:checked + label:after {
+    content: '';
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 4px;
+    border-radius: 5px;
+    background-image:  data-uri('/src/img/base/tick-icon.svg');
+  }
+  input:checked + label:before {
+    background: @color-blue;
+  }
+
+}
+
+.custom-radio {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: normal;
+  cursor: pointer;
+  font: 14px/20px @fm-web;
+  input {
+    display: none;
+  }
+  label {
+    padding-left: 10px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font: 14px/20px @fm-web;
+    color: #000;
+    margin: 10px 20px 0 0;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      background-color: #dadada;
+      border-radius: 50%;
+      transition: all .05s linear;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 2px;
+      z-index: 10;
+      background-color: #fff;
+      opacity: 0;
+      transition: all .05s linear;
+    }
+    &.active {
+      &:before {
+        background-color: #59c6f2;
+      }
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.custom-upload {
+  margin-top: 17px;
+  label {
+    width: 100%;
+    cursor: pointer;
+    margin: 0;
+    input {
+      display: none;
+    }
+    span {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+      font: 14px/20px @fm-web;
+    }
+    &:hover {
+      span {
+        text-decoration: none;
+      }
+    }
+  }
+  .progress {
+    height: 34px;
+    margin: 0;
+  }
+  .btn-group {
+    width: 100%;
+    .btn-success {
+      width: 80%;
+    }
+    .btn-danger {
+      width: 20%;
+    }
+  }
+
+}

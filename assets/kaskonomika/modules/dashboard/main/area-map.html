@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <h3 class="area-title">Пробег сегодня</h3>
+        <span class="km-today">{{55}} км.</span>
+        <uib-progressbar value="55" max="100"></uib-progressbar>
+        <div class="km-title">
+            <span class="pull-left">Рекомендуемый пробег</span>
+            <span class="pull-right">{{25}} км.</span>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ta-center">
+        <span class="consumption-title">Средний расход сегодня</span>
+        <span class="consumption-val">{{18}} л. / 100 км.</span>
+    </div>
+</div>
+<div class="row maps-and-on-off">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 google-map">
+        <!-- MAP HERE -->
+        <ng-map center="[40.74, -74.18]">
+
+        </ng-map>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 on-off-area">
+        <div class="status-area">
+            <span>Включен режим парковки</span>
+            <span>Отключен режим парковки</span>
+        </div>
+        <div class="address-area">
+            <span class="address-title">Автомобиль здесь</span>
+            <span class="address-val" ng-if="true">Адрес не найден</span>
+            <span class="address-val" ng-if="!true">{{'address'}}</span>
+            <button class="btn btn-kasko">
+                <span ng-if="true">Включить режим парковки</span>
+                <span ng-if="!true">Выключить режим парковки</span>
+            </button>
+        </div>
+    </div>
+</div>

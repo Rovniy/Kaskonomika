@@ -1,0 +1,18 @@
+<h3 class="area-title">Баллы</h3>
+<div class="circle-area">
+    <div class="circle">
+        <!--Pie Chart -->
+        <div class="progress-pie-chart" ng-class="{'gt-50' : vm.dashboard.scoring > 50}">
+            <div class="ppc-progress">
+                <div class="ppc-progress-fill" ng-style="{'transform' : 'rotate('+ 260* vm.dashboard.scoring / 100 +'deg)'}"></div>
+            </div>
+            <div class="ppc-percents">
+                <div class="pcc-percents-wrapper">
+                    <span class='value'>{{vm.dashboard.scoring}}<br/>
+                    <small>Нет данных об оценке вождения</small></span>
+                </div>
+            </div>
+        </div>
+        <!--End Chart -->
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div id="pso-item-page">
+    <div class="row card">
+        <h1>ПСО от клиента</h1>
+        <div class="ta-center p-20" ng-if="!vm.psoData && !vm.error">
+            <i class="fa fa-spin fa-circle-o-notch fa-2x"></i>
+        </div>
+        <div  ng-if="vm.psoData && !vm.error">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading"><i class="fa fa-file-text"></i> Статус заявки</div>
+                        <div class="panel-body">
+                            <p><b>Номер заявки</b>: {{vm.psoData.number || '---'}}</p>
+                            <p><b>Создание</b>: {{vm.psoData.create_date || '---'}}</p>
+                            <p><b>Обновление</b>: {{vm.psoData.pso_status_date || '---'}}</p>
+                            <p><b>Полис</b>: {{vm.psoData.policy_number || '---'}}</p>
+                            <p><b>Статус</b>:
+                                <span class="color-green" ng-if="vm.psoData.pso_status_id === '4'">{{vm.psoData.pso_status || '---'}} <i class="fa fa-check"></i></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading"><i class="fa fa-user"></i> Данные автовладельца</div>
+                        <div class="panel-body">
+                            <p><b>#ID</b>: {{vm.psoData.contractor_id || '---'}}</p>
+                            <p><b>ФИО</b>: {{vm.psoData.contractor_name || '---'}}</p>
+                            <p><b>Адрес</b>: {{vm.psoData.address || '---'}}</p>
+                            <p><b>Эл. почта</b>: {{vm.psoData.email || '---'}}</p>
+                            <p><b>Моб. телефон</b>: {{vm.psoData.phone || '---'}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"><i class="fa fa-car"></i> Автомобиль</div>
+                        <div class="panel-body">
+                            <p><b>Марка авто</b>: {{vm.psoData.policy_object_mark || '---'}}</p>
+                            <p><b>Модель</b>: {{vm.psoData.policy_object_model || '---'}}</p>
+                            <p><b>Год выпуска</b>: {{vm.psoData.policy_object_year || '---'}}</p>
+                            <p><b>Гос. номер</b>: {{vm.psoData.policy_object_number || '---'}}</p>
+                            <p><b>VIN</b>: {{vm.psoData.policy_object_vin || '---'}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Прикрепленные файлы</h3>
+                    <div class="pso-image-item" ng-repeat="(key,row) in vm.psoData.files track by $index">
+                        <a ng-href="{{row.path}}" data-lightbox="roadtrip">
+                            <img ng-src="{{row.path}}" class="pso-image-item-img"/>
+                            <div class="pso-image-item-desc">
+                                <span>{{row.category}}</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="pso-image-item plus-area">
+                        <i class="fa fa-plus fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <http-error></http-error>
+    </div>
+</div>

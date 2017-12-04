@@ -1,0 +1,278 @@
+/**
+ * Created by Ravy on 12.06.2017.
+ */
+#telematics-page {
+  .card {
+    padding: 0 20px 20px;
+    .cars-tabs {
+      margin: 0 -20px;
+      padding: 10px 5px 0;
+      background: #d3edfc;
+      ul {
+        margin-bottom: 5px;
+        li {
+          transition: .2s ease;
+          margin: 3px;
+          a {
+            transition: .2s ease;
+            background: #54b5e0;
+            color: #fff;
+            padding: 15px;
+            margin: 0;
+            border-radius: 4px;
+          }
+          &:hover {
+            transition: .2s ease;
+            a {
+              transition: .2s ease;
+              border: 1px solid #54b5e0;
+              background: #4494b7;
+            }
+
+          }
+        }
+        .disabled {
+          cursor: wait!important;
+          a {
+            background: lightslategrey;
+            border: 1px solid lightslategrey;
+          }
+          &:hover {
+            a {
+              border: 1px solid lightslategrey;
+              background: lightslategrey;
+            }
+          }
+        }
+        .active {
+          a {
+            background: #fff;
+            color: #000;
+            border: 1px solid #fff;
+            &:hover {
+              background: #fff;
+              border: 1px solid #fff;
+            }
+          }
+        }
+      }
+    }
+    .main-area {
+      padding: 20px 0;
+      .main-area-title {
+        font: 14px/14px @fm-bold;
+        color: #000;
+        text-align: center;
+        display: block;
+        margin: 0 0 20px;
+      }
+      .scoring {
+        width: 200px;
+        height: 200px;
+        display: block;
+        margin: auto;
+        border-radius: 50%;
+        border: 10px solid @color_11;
+        text-align: center;
+        span {
+          display: block;
+        }
+        .score {
+          font: 60px/60px @fm-bold;
+          color: #000;
+          margin: 30% auto;
+          .red {
+            line-height: 60px;
+          }
+          i {
+            vertical-align: top;
+            font-size: 28px;
+            line-height: 1;
+          }
+          small {
+            vertical-align: top;
+            text-transform: uppercase;
+            font: 18px/18px @fm-bold;
+            color: #999;
+          }
+        }
+      }
+    }
+    .calendar-area {
+      margin: 0 -20px;
+      padding: 10px 5px 0;
+      background: #d3edfc;
+      border-top: 1px solid #d4d4d4;
+      ul {
+        li {
+          margin-right: 5px;
+          transition: .2s ease;
+          a {
+            background: #54b5e0;
+            color: #fff;
+            padding: 15px;
+            transition: .2s ease;
+          }
+          &:hover {
+            transition: .2s ease;
+            a {
+              transition: .2s ease;
+              border: 1px solid #54b5e0;
+              background: #4494b7;
+            }
+          }
+        }
+        .active {
+          a {
+            background: #fff;
+            color: #000;
+            border: 1px solid #fff;
+            &:hover {
+              background: #fff;
+              border: 1px solid #fff;
+            }
+          }
+        }
+      }
+
+    }
+    .trips-parking-area {
+      padding: 20px 20px 0;
+      .panel-group {
+        .panel {
+          .panel-heading {
+            h4 {
+              a {
+                display: block;
+                height: 100%;
+                width: 100%;
+                &:hover {
+                  text-decoration: none;
+                }
+                &:focus {
+                  outline: none;
+                  text-decoration: none;
+                }
+                img {
+                  max-height: 30px;
+                  margin: 0 10px;
+                }
+              }
+            }
+
+          }
+          .panel-collapse {
+            .panel-body {
+              .parking-area {
+                .top-area {
+                  .map-area {
+                    .map {
+                      height: 300px;
+                      width: 100%;
+                    }
+                    .angular-google-map-container {
+                      height: 400px;
+                    }
+                  }
+                  .parking-address {
+                    .position-title {
+                      font: 62px/62px @fm-bold;
+                      color: #000;
+                      display: block;
+                      text-align: right;
+                      margin: 30px 0;
+                    }
+                    .parking-title-from {
+                      font: 26px/52px @fm-main;
+                      color: #000;
+                      display: block;
+                      text-align: right;
+                    }
+                    .parking-title-to {
+                      font: 26px/52px @fm-main;
+                      color: #000;
+                      display: block;
+                      text-align: right;
+                    }
+                    .position-address {
+                      font: 26px/52px @fm-main;
+                      color: #000;
+                      display: block;
+                      text-align: right;
+                    }
+                  }
+                }
+                .bottom-area {
+                  .interests-area {
+                    p {
+                      font: 18px/18px @fm-main;
+                      color: #000;
+                    }
+                    ul {
+                      li {
+                        list-style: none;
+
+                      }
+                    }
+                  }
+                  .category-area {
+                    .category-area-title {
+                      font: 18px/18px @fm-main;
+                      color: #000;
+                    }
+                  }
+                }
+              }
+              .trip-area {
+                .top-area {
+                  .map {
+                    height: 300px;
+                    width: 100%;
+                  }
+                  .scoring {
+                    width: 200px;
+                    height: 200px;
+                    display: block;
+                    margin: 50px auto;
+                    border-radius: 50%;
+                    border: 10px solid @color_11;
+                    text-align: center;
+                    span {
+                      display: block;
+                    }
+                    .score {
+                      font: 60px/60px @fm-bold;
+                      color: #000;
+                      margin: 30% auto;
+                      small {
+                        vertical-align: top;
+                        text-transform: uppercase;
+                        font: 18px/18px @fm-bold;
+                        color: #999;
+                      }
+                    }
+                  }
+                  .weather-area {
+                    text-align: center;
+                    img {
+                      width: 50%;
+                      margin: 30px auto 0;
+                    }
+                  }
+                }
+                .bottom-area {
+                  padding: 0 20px;
+                  span {
+                    font: 18px/18px @fm-main;
+                    color: #000;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

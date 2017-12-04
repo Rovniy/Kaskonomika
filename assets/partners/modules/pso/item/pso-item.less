@@ -1,0 +1,61 @@
+/**
+ * Created by Ravy on 22.03.2017.
+ */
+#pso-item-page {
+  @imgWidth: 200px;
+  .card {
+    & > .row {
+      margin: 0;
+    }
+    .pso-image-item {
+      width: @imgWidth;
+      height: @imgWidth;
+      position: relative;
+      float: left;
+      margin: 5px;
+      a {
+        display: block;
+        height: @imgWidth;
+        width: @imgWidth;
+        .pso-image-item-img {
+          width: @imgWidth;
+          height: @imgWidth;
+          opacity: .8;
+        }
+        .pso-image-item-desc {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: @color_16;
+          text-align: center;
+          padding:10px 0;
+          span {
+            color: #fff;
+          }
+        }
+        &:hover {
+          .pso-image-item-img {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .plus-area {
+      background: rgba(0,0,0,.3);
+      text-align: center;
+      cursor: pointer;
+      i {
+        color: #999;
+        line-height: @imgWidth;
+        vertical-align: middle;
+      }
+      &:hover {
+        background: rgba(81, 169, 255, 0.3);
+        i {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+<div id="registration-page" class="animated fadeIn">
+    <div class="container-fluid">
+        <div class="row ta-center header-area">
+            <h1>Регистрация</h1>
+        </div>
+        <div class="container-fluid body-area">
+            <div class="container">
+                <div class="row bounceInRight" ng-class="{'animated': vm.step == 1}" ng-show="vm.step == 1">
+                    <form name="regForm">
+                        <div class="form-group" ng-class="{'has-error':regForm.email.$error.email || vm.user.errorCode == '200.1.4'}">
+                            <label for="registrationEmail">Электронная почта</label>
+                            <input type="email"
+                                   class="form-control input-lg"
+                                   id="registrationEmail"
+                                   name="email"
+                                   ng-model="vm.user.email"
+                                   ng-change="vm.clearErrorData()"
+                                   ng-model-options="{ debounce: 500 }"
+                                   placeholder="email@email.com"/>
+                            <div class="errors-area">
+                                <span class="error-text" ng-if="regForm.email.$error.email">Неверная электронная почта</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registrationPass">Пароль</label>
+                            <input type="password"
+                                   class="form-control input-lg"
+                                   id="registrationPass"
+                                   ng-model="vm.user.pass"
+                                   ng-change="vm.clearErrorData()"
+                                   ng-model-options="{ debounce: 500 }"
+                                   placeholder="Придумайте пароль"/>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':vm.user.errorCode == '200.1.5'}">
+                            <label for="registrationPhone">Контактный телефон</label>
+                            <input type="text"
+                                   class="form-control input-lg"
+                                   id="registrationPhone"
+                                   ng-model="vm.user.phone"
+                                   ng-change="vm.clearErrorData()"
+                                   ng-model-options="{ debounce: 500 }"
+                                   placeholder="+7 (XXX) XXX-XX-XX"
+                                   mask="+9 (999) 999-99-99"/>
+                        </div>
+                        <div class="checkbox custom-checkbox">
+                            <input class="hidden" id="registrationAgree" type="checkbox" ng-model="vm.user.agree">
+                            <label ng-click="vm.user.agree = !vm.user.agree">
+                                <span>Согласен на обработку личных данных</span>
+                            </label>
+                        </div>
+                        <div class="form-group" ng-show="!vm.user.regError">
+                            <button class="btn btn-kasko"
+                                    type="submit"
+                                    ng-disabled="!vm.user.email || !vm.user.pass || !vm.user.phone || !vm.user.agree"
+                                    ng-click="vm.registration()">
+                                <span ng-if="!vm.user.await">Зарегистрироваться</span>
+                                <i class="fa fa-spin fa-circle-o-notch" ng-if="vm.user.await"></i>
+                            </button>
+                        </div>
+                        <div class="form-group" ng-show="vm.user.regError">
+                            <div class="errors-area">
+                                <span ng-if="vm.user.errorCode == '200.1.4'">На указанную электронную почту уже зарегистрирован аккаунт.</span>
+                                <span ng-if="vm.user.errorCode == '200.1.5'">Номер телефона уже используется другим пользователем. Если это ваш телефон, обратитесь в службу поддежки.</span>
+                                <span ng-if="vm.user.errorCode != '200.1.4' && vm.user.errorCode != '200.1.5'">Возникла ошибка в процессе регистрации. Обратитесь в службу поддержки.</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row animated bounceInRight" ng-if="vm.step == 2">
+                    <h2>На указанный номер телефона было отправлено СМС для подтверждения регистрации</h2>
+                    <div class="form-group"  ng-class="{'has-error':vm.user.codeError}">
+                        <label for="registrationCode">Введите код из sms</label>
+                        <input type="text"
+                               class="form-control input-lg"
+                               id="registrationCode"
+                               ng-model="vm.user.code"
+                               ng-model-options="{ debounce: 500 }"
+                               placeholder="1234"/>
+                        <div class="errors-area">
+                            <span class="error-text" ng-if="vm.user.codeError">Код из SMS введен неверно</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-kasko" ng-disabled="!vm.user.code" ng-click="vm.confirmPhone()">Отправить код</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

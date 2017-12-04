@@ -1,0 +1,24 @@
+<div id="result-page" class="animated fadeIn">
+    <div class="container-fluid">
+        <div class="container calc-area animated zoomInDown">
+            <ng-include src="'/car-finder/car-finder.html'" id="car-finder-type-4"></ng-include>
+        </div>
+    </div>
+    <div class="container-fluid result-body">
+        <div class="container">
+            <div class="row result-area">
+                <div class="col-lg-9 results-list">
+                    <ng-include src="'/result-page/result-page-item.html'" id="result-page-list" ng-if="vm.resultList.length > 0"></ng-include>
+                    <div class="loader-area" ng-if="vm.resultCount != 0">
+                        <i class="fa fa-4x fa-refresh fa-spin"></i>
+                    </div>
+                    <ng-include src="'/result-page/result-page-item-default.html'"></ng-include>
+                </div>
+                <div class="col-lg-3">
+                    <ng-include src="'/result-page/result-page-sidebar.html'" id="result-page-sidebar"></ng-include>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

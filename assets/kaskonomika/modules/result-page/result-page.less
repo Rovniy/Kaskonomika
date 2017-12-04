@@ -1,0 +1,596 @@
+#result-page {
+  margin: 0;
+  padding: 80px 0 0 0;
+  background: #fff;
+  .container-fluid {
+    padding: 60px 0 30px;
+    background: url('/src/img/backgrounds/result-top-right.png') bottom right / 20% no-repeat,
+    url('/src/img/backgrounds/result-top-left.png') bottom left / 20% no-repeat #d4edfc;
+    .container {
+      position: relative
+    }
+    .calc-area  {
+      padding:0 80px 80px;
+      z-index: 1;
+    }
+  }
+  .result-body {
+    background: #fff;
+    .result-area {
+      padding: 0;
+      margin: auto;
+      .results-list {
+        padding: 0;
+        margin: auto;
+        .item {
+          border: 1px solid #dadada;
+          border-radius: 5px;
+          width: 100%;
+          position: relative;
+          margin: 0 auto 5px;
+          .col {
+            margin: 0;
+          }
+          .top-area {
+            margin: 0;
+            .issure-logo {
+              margin: 55px auto 0;
+              display: block;
+              width: 90%;
+              max-width: 200px;
+            }
+            .p-top-n {
+              margin: 40px 0;
+              .item-title-area {
+                width: 100%;
+                span {
+                  letter-spacing: .7px;
+                  font: 11px/25px @fm-bold;
+                  text-transform: uppercase;
+                  color: rgba(0,0,0,.4);
+                }
+              }
+              .item-cost-area {
+                width: 100%;
+                .cost-item {
+                  float: left;
+                  margin: 0 50px 0 0;
+                  h3 {
+                    margin: 0;
+                    font: 16px/20px @fm-web;
+                    color: #000;
+                    i {
+                      font-size: 15px;
+                    }
+                    span {
+                      display: block;
+                      text-align: center;
+                      font: 14px/15px @fm-web;
+                      color: #b2b2b2;
+                    }
+                  }
+                }
+              }
+              .issure-price {
+                text-align: right;
+                font: 20px/40px @fm-bold;
+                color: #000;
+                margin: 0;
+                padding: 0;
+                i {
+                  font-size: 18px;
+                }
+                .cost-item-type {
+                  display: block;
+                  text-align: right;
+                  font: 14px/15px @fm-main;
+                  color: #b2b2b2;
+                }
+              }
+            }
+            .issue-btn {
+              background: #263c75;
+              color: #fff;
+              height: 40px;
+              font: 14px/40px @fm-web;
+              text-align: center;
+              text-decoration: none;
+              border: none;
+              border-radius: 20px;
+              cursor: pointer;
+              outline: none;
+              transition: .2s ease;
+              width: 100%;
+              display: block;
+              margin: 60px auto 0;
+              &:hover {
+                outline: none;
+                border: none;
+                background: #241e46;
+                transition: .2s ease;
+              }
+            }
+            @media screen and (max-width: @screen-sm-min)  {
+              .issue-btn {
+                margin: 0 auto 10px;
+              }
+            }
+            hr {
+              color: #dadada;
+              width: 95%;
+              margin: auto;
+              border-color: #e5e5e5;
+
+            }
+          }
+          .bottom-area {
+            text-align: right;
+            padding: 0 15px;
+            button {
+              background: none;
+              border: none;
+              outline: none;
+              span {
+                color: @color-blue;
+                font: 14px/50px @fm-web;
+                i {
+                  margin: 0 0 0 5px;
+                }
+              }
+              &:hover {
+                span {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+          .popover-area {
+            background: #d4edfc;
+            padding: 0 30px 10px;
+            .popover-item-title {
+              margin: 0 0 10px 0;
+              padding: 0;
+              font: 11px/15px @fm-bold;
+              text-transform: uppercase;
+              text-align: left;
+            }
+            .popover-item {
+              width: 49%;
+              margin: 20px 0 0 0;
+              display: inline-block;
+              vertical-align: top;
+              ul {
+                padding: 0;
+                width: 95%;
+                li {
+                  margin-bottom: 5px;
+                  list-style: none;
+                  .color-blue {
+                    color: @color-blue;
+                  }
+                  .color-grey {
+                    color: @color-semi;
+                  }
+                  span {
+                    font: 14px/25px @fm-web;
+                  }
+                  i {
+                    width: 12px;
+                  }
+                }
+                .active {
+                  span {
+                    color: #000;
+                  }
+                }
+                .inactive {
+                  span {
+                    color: rgba(0,0,0,.2);
+                  }
+                }
+              }
+            }
+            &._default {
+              padding: 20px 30px;
+              .error-phone {
+                span {
+                  line-height: 32px;
+                  color: @color-error;
+                }
+              }
+            }
+          }
+        }
+        .item-default {
+          border: 1px solid #dadada;
+          border-radius: 5px;
+          width: 100%;
+          position: relative;
+          margin: 0 auto 5px;
+          .col {
+            margin: 0;
+          }
+          .top-area {
+            margin: 0;
+            padding: 20px 0;
+            .issure-logo {
+              margin: 30px auto 0;
+              display: block;
+              width: 90%;
+              max-width: 200px;
+            }
+            .p-top-n {
+              margin: 20px 0;
+              .item-title-area {
+                width: 100%;
+                span {
+                  letter-spacing: .7px;
+                  font: 11px/25px @fm-bold;
+                  text-transform: uppercase;
+                  color: rgba(0,0,0,.4);
+                }
+              }
+              .item-cost-area {
+                width: 100%;
+                .cost-item {
+                  float: left;
+                  margin: 0 50px 0 0;
+                  h3 {
+                    margin: 0;
+                    font: 16px/20px @fm-web;
+                    color: #000;
+                    i {
+                      font-size: 15px;
+                    }
+                    span {
+                      display: block;
+                      text-align: center;
+                      font: 14px/15px @fm-web;
+                      color: #b2b2b2;
+                    }
+                  }
+                }
+              }
+              .issure-price {
+                text-align: right;
+                font: 20px/40px @fm-bold;
+                color: #000;
+                margin: 0;
+                padding: 0;
+                i {
+                  font-size: 18px;
+                }
+                .cost-item-type {
+                  display: block;
+                  text-align: right;
+                  font: 14px/15px @fm-main;
+                  color: #b2b2b2;
+                }
+              }
+            }
+            .issue-btn {
+              background: #263c75;
+              color: #fff;
+              height: 40px;
+              font: 14px/40px @fm-web;
+              text-align: center;
+              text-decoration: none;
+              border: none;
+              border-radius: 20px;
+              cursor: pointer;
+              outline: none;
+              transition: .2s ease;
+              width: 100%;
+              display: block;
+              margin: 30px auto 0;
+              &:hover {
+                outline: none;
+                border: none;
+                background: #241e46;
+                transition: .2s ease;
+              }
+            }
+            hr {
+              color: #dadada;
+              width: 95%;
+              margin: auto;
+              border-color: #e5e5e5;
+
+            }
+          }
+          .bottom-area {
+            text-align: right;
+            padding: 0 15px;
+            button {
+              background: none;
+              border: none;
+              outline: none;
+              span {
+                color: @color-blue;
+                font: 14px/50px @fm-web;
+                i {
+                  margin: 0 0 0 5px;
+                }
+              }
+              &:hover {
+                span {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+          .popover-area {
+            background: #d4edfc;
+            padding: 0 30px 10px;
+            .popover-item-title {
+              margin: 0 0 10px 0;
+              padding: 0;
+              font: 11px/15px @fm-bold;
+              text-transform: uppercase;
+              text-align: left;
+            }
+            .popover-item {
+              width: 49%;
+              margin: 20px 0 0 0;
+              display: inline-block;
+              vertical-align: top;
+              ul {
+                padding: 0;
+                width: 95%;
+                li {
+                  margin-bottom: 5px;
+                  list-style: none;
+                  .color-blue {
+                    color: @color-blue;
+                  }
+                  .color-grey {
+                    color: @color-semi;
+                  }
+                  span {
+                    font: 14px/25px @fm-web;
+                  }
+                  i {
+                    width: 12px;
+                  }
+                }
+                .active {
+                  span {
+                    color: #000;
+                  }
+                }
+                .inactive {
+                  span {
+                    color: rgba(0,0,0,.2);
+                  }
+                }
+              }
+            }
+            &._default {
+              padding: 20px 30px;
+              .error-phone {
+                span {
+                  line-height: 32px;
+                  color: @color-error;
+                }
+              }
+            }
+          }
+        }
+      }
+      .loader-area {
+        text-align: center;
+        margin: 50px;
+        i {
+          color: @color-blue;
+        }
+      }
+      #result-page-sidebar {
+        .block-area {
+          display: block;
+          width: 100%;
+          margin: 0 0 20px 0;
+          .block-title {
+            display: block;
+            width: 100%;
+            text-align: left;
+            font: 11px/15px @fm-bold;
+            color: #000;
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+          }
+          input {
+            width: 100%;
+          }
+          .checkbox-area {
+            position: relative;
+            margin: 0 0 10px 0;
+            .checkbox-input {
+              display: none;
+            }
+            .checkbox-check-title {
+              display: block;
+              cursor: pointer;
+              padding-left: 30px;
+              font: 14px/20px @fm-web;
+              color: #000;
+              margin: 0;
+              &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 20px;
+                height: 20px;
+                background-color: #dadada;
+                border-radius: 3px;
+                transition: all .05s linear;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+              }
+              &:after {
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: 3px;
+                width: 14px;
+                height: 12px;
+                z-index: 10;
+                background-color: transparent;
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                background-size: 100% 100%;
+                background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2213.094%22%20height%3D%2210.344%22%20viewBox%3D%220%200%2013.094%2010.344%22%3E%0D%0A%20%20%3Cdefs%3E%0D%0A%20%20%20%20%3Cstyle%3E%0D%0A%20%20%20%20%20%20.cls-1%20%7B%0D%0A%20%20%20%20%20%20%20%20fill%3A%20none%3B%0D%0A%20%20%20%20%20%20%20%20stroke%3A%20%23fff%3B%0D%0A%20%20%20%20%20%20%20%20stroke-width%3A%202px%3B%0D%0A%20%20%20%20%20%20%20%20fill-rule%3A%20evenodd%3B%0D%0A%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%3C%2Fstyle%3E%0D%0A%20%20%3C%2Fdefs%3E%0D%0A%20%20%3Cpath%20class%3D%22cls-1%22%20d%3D%22M36.718%2C175.839l2.368%2C2.753%2C5.839-5.468%22%20transform%3D%22translate(-34.188%20-172.125)%22%2F%3E%0D%0A%3C%2Fsvg%3E%0D%0A');
+                opacity: 0;
+                transition: all .05s linear;
+              }
+            }
+            &.active {
+              .checkbox-check-title {
+                &:before {
+                  background: @color-blue;
+                }
+                &:after {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+          .show-slider-franchise {
+            margin: 0 0 10px 0;
+            animation-delay: 0s;
+            animation-duration: 0s;
+            .big-title {
+              font: 16px/16px @fm-bold;
+              color: #000;
+              display: block;
+            }
+            .rzslider {
+              @pointer-size: 14px;
+              .rz-pointer {
+                width: @pointer-size;
+                height: @pointer-size;
+                top: -5px;
+                &:after {
+                  content: none;
+                }
+                &:focus {
+                  outline: none;
+                }
+                &:hover {
+                  background: @color-blue-hover;
+                }
+
+              }
+            }
+          }
+          .bounceIn {
+            animation-duration: 1s;
+          }
+          .driver-row {
+            display: table;
+            margin: 0 0 10px 0;
+            position: relative;
+            .col-lg-6,.col-lg-12 {
+              padding: 0;
+              span {
+                display: block;
+                margin: 0 0 5px 0;
+              }
+            }
+            .left-side {
+              padding: 0 5px 0 0;
+            }
+            .right-side {
+              padding: 0 0 0 5px;
+            }
+            @media screen and (max-width: @screen-sm-min) {
+              .left-side, .right-side {
+                padding: 5px 0;
+              }
+            }
+            .fa-trash-o {
+              position: absolute;
+              top: 26px;
+              right: -20px;
+              font-size: 15px;
+              cursor: pointer;
+              &:hover {
+                color: darkred;
+              }
+            }
+          }
+          .car-price-area {
+            .big-title {
+              font: 16px/16px @fm-bold;
+              color: #000;
+              display: block;
+            }
+            .rzslider {
+              @pointer-size: 14px;
+              .rz-pointer {
+                width: @pointer-size;
+                height: @pointer-size;
+                top: -5px;
+                &:after {
+                  content: none;
+                }
+                &:focus {
+                  outline: none;
+                }
+                &:hover {
+                  background: @color-blue-hover;
+                }
+
+              }
+            }
+          }
+          .ng-leave {
+            animation-duration: 0s;
+          }
+          .driver-add-more {
+            @btn-width: 25px;
+            display: table;
+            width: 100%;
+            padding: 5px;
+            border: 1px dashed #999;
+            border-radius: 5px;
+            cursor: pointer;
+            .plus-btn {
+              letter-spacing: normal;
+              width: @btn-width;
+              margin: 0 auto;
+              height: @btn-width;
+              display: block;
+              float: left;
+              background: @color-blue;
+              text-align: center;
+              line-height: @btn-width;
+              border-radius: 50%;
+              font: 24px/@btn-width @fm-main;
+              color: #fff;
+              transition: ease .2s;
+            }
+            .plus-title {
+              float: left;
+              width: 80%;
+              padding: 0 0 0 10px;
+              display: block;
+              color: #000;
+              font: 14px/@btn-width @fm-web;
+            }
+            &:hover {
+              border: 1px dashed @color-blue;
+              transition: ease .2s;
+              .plus-btn {
+                background: @color-blue-hover;
+              }
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

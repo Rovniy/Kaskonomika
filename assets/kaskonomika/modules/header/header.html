@@ -1,0 +1,71 @@
+<div class="container-fluid" id="header" ng-class="{'active' : scrollFromTop}" ng-controller="headerController as vm">
+    <div ng-show="!vm.showCalc">
+        <div class="sub-menu pull-left col-lg-3 col-md-6 col-sm-6 col-xs-9">
+            <ul class="list-inline animated fadeInLeftBig">
+                <li class="sub-menu-icon">
+                    <i class="fa fa-bars fa-2x noselect" ng-click="vm.openOverlay = !vm.openOverlay"></i>
+                </li>
+                <li class="sub-menu-logo">
+                    <a href="/" class="noselect"><img src="/src/img/base/logo-sm.png"/></a>
+                </li>
+            </ul>
+            <!-- START : Оверлей для открывающего меню -->
+            <ng-include src="'/header/header-overlay.html'" id="header-overlay" ng-if="vm.openOverlay"></ng-include>
+            <!-- END : Оверлей для открывающего меню -->
+        </div>
+        <div class="main-menu pull-left col-lg-5 hidden-md hidden-sm hidden-xs">
+            <ul class="list-inline animated fadeInDownBig">
+                <li ng-repeat="item in vm.mainMenu track by $index" ng-class="{'active': currentUlr === item.url}">
+                    <a href="{{::item.url}}">{{::item.text}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="user-menu pull-right col-lg-4 col-md-6 col-sm-6 col-xs-3">
+            <ul class="list-inline animated fadeInRightBig">
+                <li>
+                    <div class="user-dashboard-icon"ng-if="currentUser" uib-dropdown>
+                        <div class="user-dashboard-area animated hidden-sm hidden-xs"
+                             on-toggle="toggled(open)"
+                             uib-dropdown-toggle
+                             is-open="menuOpened"
+                             ng-if="vm.view"
+                             ng-class="{bounceInRight: vm.view, bounceOutRight: !vm.view}">
+                            <i class="fa fa-user fa-2x"></i>
+                        </div>
+                        <!-- START : Всплывающее меню личного кабинета -->
+                        <ng-include src="'/header/header-user-menu.html'"
+                                    id="header-user-menu"
+                                    class="dashboard-menu animated"
+                                    uib-dropdown-menu></ng-include>
+                        <!--END : Всплывающее меню личного кабинета -->
+                    </div>
+                    <div class="user-dashboard-icon" ng-if="!currentUser" uib-dropdown>
+                        <div class="user-dashboard-area animated hidden-sm hidden-xs"
+                             ng-click="vm.authOpen = true"
+                             ng-if="vm.view"
+                             ng-class="{bounceInRight: vm.view, bounceOutRight: !vm.view}">
+                            <i class="fa fa-user fa-2x"></i>
+                        </div>
+                        <!-- START : Всплывающее меню личного кабинета -->
+                        <ng-include src="'/header/header-auth-menu.html'" id="header-auth-menu" class="dashboard-auth" ng-if="vm.authOpen == true"></ng-include>
+                        <!--END : Всплывающее меню личного кабинета -->
+                    </div>
+                </li>
+                <li class="phone-area hidden-sm hidden-xs animated" ng-class="{bounceInRight: vm.view}">
+                    <span>+7 499 550-00-09</span>
+                </li>
+                <li class="calc-area animated" ng-class="{slideInDown: scrollFromTop, fadeOut: !scrollFromTop}">
+                    <div class="header-calc" ng-click="vm.showCalc = !vm.showCalc">
+                        <i class="fa fa-calculator"></i>
+                        <span class="hidden-xs">Рассчитать Каско</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="calc-area-big" ng-show="vm.showCalc">
+        <ng-include src="'/car-finder/car-finder.html'" id="car-finder-type-3"></ng-include>
+        <i class="fa fa-close fa-2x close-btn" ng-click="vm.showCalc = !vm.showCalc"></i>
+    </div>
+
+</div>

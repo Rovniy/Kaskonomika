@@ -1,0 +1,30 @@
+<div id="pso-search-page">
+    <div class="row card">
+        <h1>Поиск заявки псо</h1>
+        <div class="row ta-center search-form">
+            <form>
+            <div class="input-group search-area">
+                <div class="input-group-btn select-area">
+                    <select class="form-control" ng-model="vm.searchType" ng-change="vm.changeTitle(vm.searchType)">
+                        <option value="type">Тип заявки</option>
+                        <option value="status">Статус заявки</option>
+                        <option value="partner">Назначенный партнер</option>
+                        <option value="police_number">Номер полиса</option>
+                        <option value="pso_number">Номер заявки</option>
+                        <option value="date">Дата оформления</option>
+                        <option value="model">Марка, модель</option>
+                        <option value="vin">VIN</option>
+                        <option value="end_date">Дата выполнения</option>
+                        <option value="phone">Номер телефона клиента, по полису</option>
+                    </select>
+                </div><!-- /btn-group -->
+                <input class="form-control" type="text" placeholder="{{vm.current}}" ng-model="id"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="submit" ng-click="vm.findPsoById(id)">Поиск по номеру</button>
+                </span>
+            </div><!-- /input-group -->
+            </form>
+        </div>
+        <http-error></http-error>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div id="pso-list-page">
+    <div class="row card">
+        <h1>ПСО и все, что с ним связано</h1>
+        <div class="ta-center p-20" ng-if="!vm.psoList && !vm.error">
+            <i class="fa fa-spin fa-circle-o-notch fa-2x"></i>
+        </div>
+        <div ng-if="vm.psoList && !vm.error">
+            <table class="table table-striped tr-hover table-bordered">
+                <thead>
+                <tr>
+                    <th sort order="'is_mount'" by="order" reverse="reverse">Тип заявки</th>
+                    <th sort order="'id'" by="order" reverse="reverse">Номер заявки</th>
+                    <th sort order="'number'" by="order" reverse="reverse">Номер договора</th>
+                    <th sort order="'create_date'" by="order" reverse="reverse">Дата заявки</th>
+                    <th sort order="'pso_status'" by="order" reverse="reverse">Статус</th>
+                    <th sort order="'policy_object_mark'" by="order" reverse="reverse">Марка, модель</th>
+                    <th sort order="'policy_object_number'" by="order" reverse="reverse">Гос.номер</th>
+                    <th sort order="'pso_status_date'" by="order" reverse="reverse">Дата выполнения</th>
+                    <th sort order="'performer_contractor_name'" by="order" reverse="reverse">Партнер</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(key,row) in vm.psoList | orderBy:order:reverse" ng-click="vm.goToItem(row.id)">
+                    <td>
+                        <span ng-if="row.is_mount">Установка </span>
+                        <span ng-if="row.is_mount && row.is_review"> / </span>
+                        <span ng-if="row.is_review"> Осмотр</span>
+                    </td>
+                    <td>{{row.id|| '---'}}</td>
+                    <td>{{row.number|| '---'}}</td>
+                    <td>{{row.create_date || '---'}}</td>
+                    <td>{{row.pso_status || '---'}}</td>
+                    <td>{{row.policy_object_mark || '-'}} {{row.policy_object_model || '-'}} {{row.policy_object_year || '-'}}</td>
+                    <td>{{row.policy_object_number || '---'}}</td>
+                    <td>{{row.meeting_date || '---'}}</td>
+                    <td>{{row.pso_performer_name || '---'}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <http-error></http-error>
+    </div>
+
+</div>

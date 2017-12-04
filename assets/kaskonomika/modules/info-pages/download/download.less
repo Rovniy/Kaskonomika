@@ -1,0 +1,144 @@
+#download-page {
+  margin: 0;
+  padding: 80px 0 0 0;
+  background: #fff;
+  p {
+    text-align: left;
+    padding: 0;
+    font: 16px/24px @fm-light;
+    color: #000;
+  }
+  h1 {
+    text-align: center;
+    margin: 0 auto 100px;
+    font: 36px/50px @fm-bold;
+    width: 70%;
+    color: #000;
+  }
+  h2 {
+    color: #000;
+  }
+  h3 {
+    text-align: left;
+    font: 20px/20px @fm-web;
+    color: #000;
+  }
+  #download-section1 {
+    .container-fluid {
+      background: url('/src/img/backgrounds/download-section1.png') bottom right / 50% no-repeat #d4edfc;
+      .container {
+        padding: 150px 0;
+      }
+    }
+
+  }
+  #download-section2 {
+    .container-fluid {
+      background: #fff;
+      .container {
+        padding: 150px 0;
+        h1 {
+          margin: 0 auto 50px;
+        }
+        .phone-area {
+          @phone-area-height: 500px;
+          text-align: center;
+          height: @phone-area-height;
+          position: relative;
+          .phone {
+            height: 100%;
+          }
+          .btn-absolute {
+            position: absolute;
+            cursor: pointer;
+            opacity: .8;
+            &:hover {
+              opacity: 1;
+            }
+          }
+          .btn-left {
+            left: 80px;
+            top: 30%;
+            line-height: @phone-area-height;
+            vertical-align: middle;
+            transform: rotate(180deg);
+          }
+          .btn-right {
+            right: 80px;
+            top: 30%;
+            line-height: @phone-area-height;
+            vertical-align: middle;
+          }
+        }
+        .pointers-area {
+          .pointers {
+            width: 300px;
+            margin: 0 auto;
+            .pointer {
+              float: left;
+              margin: 0 5px;
+              width: 60px;
+              height: 5px;
+              border-radius: 10px;
+              cursor: pointer;
+              box-shadow: 0 4px 8px -1px #454545;
+              background-color: #b0b0b0;
+              transition: .2s ease;
+              &:hover, &:focus {
+                transition: .2s ease;
+                box-shadow: 0 4px 8px -1px #00ccf4;
+                background-color: #6ee7ff;
+              }
+            }
+            .active {
+              box-shadow: 0 4px 8px -1px #00ccf4;
+              background-color: #6ee7ff;
+            }
+          }
+        }
+      }
+    }
+    .white {
+      background: #fff;
+    }
+    .blue {
+      background: #83daf8;
+    }
+    .red {
+      background: #f15a5b;
+    }
+  }
+  #download-section3 {
+    .container-fluid {
+      background: #efefef;
+      .container {
+        padding: 50px 0;
+        .img-area {
+          text-align: center;
+          img {
+            width: 90px;
+          }
+        }
+        h4 {
+          margin: 30px auto;
+        }
+        a {
+          transition: .2s ease;
+          .app {
+            opacity: .8;
+            margin: 0 3px;
+          }
+          &:hover,&:focus {
+            text-decoration: none;
+            outline: none;
+            .app {
+              opacity: 1;
+              transition: .2s ease;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}

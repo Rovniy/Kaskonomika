@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <ks-swiper-container slides-per-view="1"
+                         slides-per-column="1"
+                         space-between="0"
+                         pagination-is-active="false"
+                         pagination-clickable="true"
+                         show-nav-buttons="true"
+                         loop="false"
+                         autoplay="5000"
+                         initial-slide="0"
+                         direction="horizontal"
+                         swiper="swiper"
+                         on-ready="onReadySwiper(swiper)">
+        <ks-swiper-slide class="swiper-slide" ng-repeat="item in vm.indexSlides">
+            <div class="container">
+                <img class="back-img visible-lg visible-md hidden-sm hidden-xs" ng-src="/src/img/sliders/index-slider/slide_{{::item.index}}.png" alt="">
+                <div class="back-opacity"></div>
+                <img class="dotted-line visible-lg visible-md hidden-sm hidden-xs" src="/src/img/sliders/index-slider/line_white.svg" alt="">
+                <div class="slide-text">
+                    {{::item.text}}
+                </div>
+            </div>
+        </ks-swiper-slide>
+    </ks-swiper-container>
+    <div class="index-points">
+        <div class="col-xs-3 round-area" ng-click="vm.slideTo(0)" ng-class="{'active' : vm.swiperIndex == 0}">
+            <div class="round">
+                1
+            </div>
+            <div class="round-text visible-lg visible-md hidden-sm hidden-xs" ng-show="vm.swiperIndex == 0">
+                Рассчитайте и выберите тариф
+            </div>
+        </div>
+        <div class="col-xs-3 round-area" ng-click="vm.slideTo(1)" ng-class="{'active' : vm.swiperIndex == 1}">
+            <div class="round">
+                2
+            </div>
+            <div class="round-text visible-lg visible-md hidden-sm hidden-xs" ng-show="vm.swiperIndex == 1">
+                Заключите договор и оплатите онлайн
+            </div>
+        </div>
+        <div class="col-xs-3 round-area" ng-click="vm.slideTo(2)" ng-class="{'active' : vm.swiperIndex == 2}">
+            <div class="round">
+                3
+            </div>
+            <div class="round-text visible-lg visible-md hidden-sm hidden-xs" ng-show="vm.swiperIndex == 2">
+                Установите трекер "Каскономики"
+            </div>
+        </div>
+        <div class="col-xs-3 round-area" ng-click="vm.slideTo(3)" ng-class="{'active' : vm.swiperIndex == 3}">
+            <div class="round">
+                4
+            </div>
+            <div class="round-text visible-lg visible-md hidden-sm hidden-xs" ng-show="vm.swiperIndex == 3">
+                Пользуйтесь сервисом и экономьте на каско
+            </div>
+        </div>
+    </div>
+    <div class="calc-module">
+        <ng-include src="'/car-finder/car-finder.html'" id="car-finder-type-2"></ng-include>
+        <div class="fucking-dog visible-lg visible-md hidden-sm hidden-xs">
+            <img src="/src/img/sliders/index-slider/dog.png" alt=""/>
+        </div>
+    </div>
+</div>

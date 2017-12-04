@@ -1,0 +1,472 @@
+/**
+ * Created by Ravy on 26.06.2017.
+ */
+@header-height: 80px;
+
+/* Калькулятор в шапке главной страницы */
+#car-finder-type-1 {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* Калькулятор в слайдера на главной странице сайта */
+#car-finder-type-2 {
+  min-width: 100%;
+  min-height: 60px;
+  .car-finder-area {
+    .region-steps {
+      .region-area {
+        padding-left: 50px;
+        span {
+          color: #59c6f2;
+        }
+      }
+      .steps-area {
+        .title-area {
+          .col-xs-3 {
+            span {
+              font: 14px/14px @fm-web;
+              color: #B7B7B7;
+            }
+            .active {
+              color: #50b2d9;
+              cursor: pointer;
+              &:hover {
+                color: #263c75;
+              }
+            }
+          }
+        }
+        .steps-progress {
+          .progress {
+            &::-webkit-progress-bar {
+              background: #B7B7B7;
+            }
+            &::-webkit-progress-value {
+              background: #50b2d9;
+            }
+          }
+          .pointers {
+            .circle-area {
+              .circle {
+                border: 2px solid #B7B7B7;
+                background: #B7B7B7;
+              }
+              .active {
+                border-color: #50b2d9;
+                background: #50b2d9;
+              }
+            }
+          }
+        }
+      }
+    }
+    .input-area {
+      .popover-area {
+        max-height: 300px;
+      }
+    }
+  }
+}
+
+/* Калькулятор в шапке сайта */
+#car-finder-type-3 {
+  min-width: 100%;
+  min-height: @header-height;
+  display: block;
+  background: #59c6f2;
+  .car-finder-area {
+    padding: 0;
+    width: 1000px;
+    margin: auto;
+
+    .region-steps {
+      float: left;
+      width: 30%;
+      padding: 0;
+      height: @header-height;
+      .region-area {
+        width: 100%;
+        span {
+          font: 12px/@header-height @fm-bold;
+          color: #fff;
+        }
+      }
+      .col-lg-7 {
+        display: none!important;
+        .steps-area {
+
+        }
+      }
+
+    }
+    .input-area {
+      float: left;
+      width: 70%;
+      .form-inline {
+        .button-line {
+          .btn-result {
+            .btn-title-1 {
+              display: none;
+            }
+            .btn-title-2 {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Калькулятор в результатах поиска */
+#car-finder-type-4 {
+  min-width: 100%;
+  min-height: 100%;
+  background: none;
+  .car-finder-area {
+    width: 80%;
+    margin: auto;
+    .region-steps {
+      .region-area {
+        display: none
+      }
+      .col-lg-7 {
+        min-width: 100%;
+        width: 100%;
+        .steps-area {
+          margin: auto;
+          width: 60%;
+          .title-area {
+            .col-xs-3 {
+              span {
+                color: #A3A1B1;
+              }
+              .active {
+                color: #50b2d9;
+
+              }
+            }
+          }
+          .steps-progress {
+            .progress {
+              &::-webkit-progress-bar {
+                background: #A3A1B1;
+              }
+              &::-webkit-progress-value {
+                background: #50b2d9;
+              }
+            }
+            .pointers {
+              .circle-area {
+                .circle {
+                  border: 2px solid #A3A1B1;
+                  background: #A3A1B1;
+                }
+                .active {
+                  border-color: #50b2d9;
+                  background: #50b2d9;
+                }
+              }
+            }
+          }
+          //rgba(36,30,70,.4)
+        }
+      }
+    }
+    .title-h1-area {
+      display: block;
+      h1 {
+        text-align: center;
+        font: 36px/36px @fm-bold;
+        color: #000;
+      }
+    }
+    .input-area {
+
+    }
+  }
+}
+
+.car-finder-area {
+  padding: 20px 20px 0;
+  .region-steps {
+    .region-area {
+      text-align: left;
+      span {
+        font: 12px/29px @fm-bold;
+        color: #fff;
+        text-transform: uppercase;
+      }
+    }
+    .steps-area {
+      width: 100%;
+      .title-area {
+        margin: 0;
+        .col-xs-3 {
+          text-align: center;
+          padding: 0;
+          span {
+            font: 14px/14px @fm-web;
+            color: #50b2d9;
+          }
+          .active {
+            color: #fff;
+            cursor: pointer;
+            &:hover {
+              color: #263c75;
+            }
+          }
+          &:nth-child(1) {
+            text-align: left;
+          }
+          &:nth-child(2) {
+            padding-right: 40px;
+          }
+          &:nth-child(3) {
+            padding-left: 40px;
+          }
+          &:nth-child(4) {
+            text-align: right;
+          }
+        }
+
+      }
+      .steps-progress {
+        height: 15px;
+        width: 100%;
+        position: relative;
+        margin: 0;
+        .progress {
+          width: 100%;
+          height: 3px;
+          margin: 5px 0 0 0;
+          transition: .5s ease;
+          &::-webkit-progress-bar {
+            background: #50b2d9;
+            transition: .5s ease;
+          }
+          &::-webkit-progress-value {
+            background: #fff;
+            transition: .5s ease;
+          }
+        }
+        .pointers {
+          position: absolute;
+          top: 20%;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          .col-xs-2 {
+            padding: 0;
+          }
+          .col-xs-4 {
+            padding: 0;
+          }
+          .circle-area {
+            .circle {
+              display: block;
+              width: 8px;
+              height: 8px;
+              border: 2px solid #50b2d9;
+              border-radius: 50%;
+              background: #59c6f2;
+            }
+            .active {
+              border-color: #fff;
+              background: #fff;
+            }
+            &:nth-child(1) {
+              .circle {
+                float: left;
+              }
+            }
+            &:nth-child(2),&:nth-child(3) {
+              .circle {
+                margin: auto
+              }
+            }
+            &:nth-child(4) {
+              .circle {
+                float: right;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .title-h1-area {
+    display: none;
+  }
+  .input-area {
+    height: 40px;
+    margin: 20px auto 0;
+    position: relative;
+    .form-inline {
+      width: 100%;
+      height: 40px;
+      .input-line {
+        float: left;
+        width: 80%;
+        height: 40px;
+        background: #edf6fc;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .2s ease;
+        .tag {
+          float: left;
+          height: 30px;
+          background: #263c75;
+          border-radius: 2px;
+          font: 14px/30px @fm-web;
+          color: #fff;
+          margin: 5px 0 5px 5px;
+          padding: 0 5px 0 10px;
+          .fa {
+            color: #666;
+            opacity: .8;
+            transition: .2s ease;
+            margin: 0 5px;
+            &:hover, &:focus {
+              color: #fff;
+              opacity: 1;
+            }
+          }
+          &:hover, &:focus {
+            background: #2A5895;
+          }
+        }
+        .title {
+          background: none;
+          color: #000;
+          &:hover, &:focus {
+            background: none;
+          }
+        }
+        .waiter {
+          background: none;
+          color: #000;
+          &:hover, &:focus {
+            background: none;
+          }
+        }
+        &:hover {
+          background: #fff;
+          transition: .2s ease;
+        }
+      }
+      .button-line {
+        float: left;
+        width: 19%;
+        text-align: right;
+        padding-right: 5px;
+        .btn-result {
+          margin: 0 auto;
+          height: 40px;
+          background: #263c75;
+          border: none;
+          border-radius: 20px;
+          text-align: center;
+          padding: 0 12px;
+          transition: .2s ease;
+          span {
+            font: 14px/40px @fm-web;
+            color: #fff;
+          }
+          .btn-title-1 {
+            display: block;
+          }
+          .btn-title-2 {
+            display: none;
+          }
+          &:hover, &:focus {
+            transition: .2s ease;
+            outline: none;
+            border: none;
+            background: #262C58;
+          }
+        }
+      }
+    }
+    .popover-area {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 20%;
+      border-radius: 10px;
+      background: #fff;
+      padding: 20px;
+      z-index: 100;
+      max-height: 300px;
+      overflow-y: auto;
+      margin: 0;
+      -webkit-box-shadow: 0px 0px 16px 0px rgba(56, 195, 216, 0.25);
+      -moz-box-shadow:    0px 0px 16px 0px rgba(56, 195, 216, 0.25);
+      box-shadow:         0px 0px 16px 0px rgba(56, 195, 216, 0.25);
+      .row {
+        margin: 0;
+      }
+      .popover-text {
+        .block-inline {
+          display: block;
+          text-align: left;
+          float: left;
+          width: 25%;
+          height: auto;
+          font: 14px/20px @fm-web;
+          padding: 3px;
+          color: #000;
+          cursor: pointer;
+          &:hover {
+            color: darkred;
+          }
+        }
+        .block-list {
+          display: block;
+          text-align: left;
+          float: left;
+          width: 100%;
+          height: auto;
+          font: 14px/20px @fm-web;
+          margin: 3px 0;
+          color: #000;
+          cursor: pointer;
+          &:hover {
+            color: darkred;
+          }
+        }
+        .show-more {
+          float: left;
+          width: 100%;
+          height: 20px;
+          text-align: center;
+          margin-top: 20px;
+          span {
+            border-bottom: 1px dashed #000;
+            font: 14px/20px @fm-web;
+            color: #000;
+            cursor: pointer;
+            &:hover {
+              border-bottom: 1px solid #000;
+            }
+          }
+        }
+      }
+    }
+  }
+  .docs-area {
+    h3 {
+      text-align: center;
+      margin: 10px 0 30px;
+    }
+    .docs-list {
+      .docs-item {
+        min-height: 50px;
+        span {
+          font: 14px/16px @fm-web;
+        }
+      }
+    }
+  }
+}

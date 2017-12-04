@@ -1,0 +1,144 @@
+<div id="telematics-page">
+    <div class="row card">
+        <div class="ta-center p-20 waiter" ng-if="vm.lossesList">
+            <i class="fa fa-spin fa-circle-o-notch fa-2x"></i>
+        </div>
+        <div class="row cars-tabs">
+            <uib-tabset active="vm.currentCar">
+                <uib-tab ng-repeat="(key,row) in vm.cars" heading="{{row.title}}" select="vm.getNewResult(row.object_id)" disable="vm.eventListToShow.length == 0"></uib-tab>
+            </uib-tabset>
+        </div>
+        <div class="row main-area">
+            <div class="col-lg-4">
+                <span class="main-area-title">Скоринг <i class="fa fa-question-circle-o color-grey" uib-popover-html="vm.popoverHtml" popover-placement="bottom"></i></span>
+                <div class="scoring">
+                    <span class="score">
+                        <red ng-if="vm.dashboardData.score">{{vm.dashboardData.score}}</red>
+                        <i ng-if="!vm.dashboardData.score" class="fa fa-spin fa-circle-o-notch fa-2x"></i><br/>
+                        <small>Scoring</small>
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <span class="main-area-title">Пробег за месяц</span>
+                <canvas id="mounth-bar" class="chart chart-bar"
+                        chart-data="vm.newMounthcalendar"
+                        chart-labels="vm.newMounthcalendarLabels"
+                        chart-min="0"
+                        chart-mam="30"
+                        chart-series="['Пробег']">
+                </canvas>
+            </div>
+            <div class="col-lg-4">
+                <span class="main-area-title">Пробег за год</span>
+                <canvas id="year-bar" class="chart chart-bar"
+                        chart-data="vm.yearsCalendarPerMounth"
+                        chart-labels="vm.monthCalendar"
+                        chart-series="vm.series">
+                </canvas>
+            </div>
+        </div>
+        <div class="row calendar-area"  ng-if="vm.eventListToShow.length > 0">
+            <uib-tabset active="vm.currentMonth">
+                <uib-tab ng-repeat="(key,row) in vm.eventsTabs" heading="{{row.title}} ' {{vm.currentYear}}" ng-click="vm.showEventList(row.num)"></uib-tab>
+            </uib-tabset>
+        </div>
+        <div class="row trips-parking-area">
+            <div class="ta-center p-20 waiter" ng-if="vm.eventListToShow.length == 0">
+                <i class="fa fa-spin fa-circle-o-notch fa-2x"></i>
+            </div>
+            <div ng-if="vm.eventListToShow.length > 0">
+                <uib-accordion close-others="true">
+                    <div uib-accordion-group
+                         class="panel-default"
+                         ng-repeat="(key,event) in vm.eventListToShow track by $index | limitTo: 20"
+                         is-disabled="event.error">
+                        <uib-accordion-heading>
+                            <div ng-click="open = !open; vm.showMoreinfo(event,open)"  ng-if="!event.error">
+                                <img src="/src/img/icons/icon_avto_parking.png" ng-if="event.type=='parking'"/>
+                                <img src="/src/img/icons/icon_avto_trip.png" ng-if="event.type=='trip'"/>
+                                <span>с {{event.time_start | date:'dd.MM HH:mm'}} по {{event.time_end | date:'dd.MM HH:mm'}}</span>
+                                <span ng-if="event.mileage">,</span>
+                                <span ng-if="event.mileage"> {{event.mileage | number: 1}} км.</span>
+                                <span ng-if="event.score"> скоринг: {{event.score}}</span>
+                                <!--<img src="/src/img/icons/weather/sun.png" ng-if="::event.weather"/>-->
+                            </div>
+                            <div ng-if="event.error" class="ta-center">
+                                <h4>{{event.error}}</h4>
+                            </div>
+                        </uib-accordion-heading>
+                        <div ng-if="event.type == 'trip'" class="trip-area">
+                            <div class="row top-area">
+                                <div class="col-lg-6">
+                                    <div id="map{{event.time_start}}" class="map"></div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="scoring">
+                                    <span class="score" ng-if="vm.tripScoringData.score">{{vm.tripScoringData.score}}<br/>
+                                        <small>Scoring</small>
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <ul ng-if="event.weather" class="list-group">
+                                        <li class="list-group-item" ng-if="event.weather.conditions[0]">Погода: {{event.weather.conditions[0]}}</li>
+                                        <li class="list-group-item" ng-if="event.weather.pressure">Давление: {{event.weather.pressure}} мм.рт.ст.</li>
+                                        <li class="list-group-item" ng-if="event.weather.temperature">Температура: {{event.weather.temperature | number:0}} гр. Цельсия</li>
+                                        <li class="list-group-item" ng-if="event.weather.humidity">Влажность: {{event.weather.humidity | number:0}} %</li>
+                                        <li class="list-group-item" ng-if="event.weather.windSpeed">Скорость ветра: {{event.weather.windSpeed | number:0}} м/с</li>
+                                        <li class="list-group-item" ng-if="event.weather.visibility">Видимость: {{event.weather.visibility}} м.</li>
+                                    </ul>
+                                    <!--<div class="weather-area" ng-if="event.weather">
+                                        <img src="/src/img/icons/weather/sun_big.png"/>
+                                    </div>-->
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row bottom-area">
+                                <span>Пробег:</span>
+                                <span>{{event.mileage | number: 1}} км.,</span>
+                                <span>Время в пути:</span>
+                                <span>{{event.hhmm}}</span>
+                            </div>
+                        </div>
+                        <div ng-if="event.type == 'parking'" class="parking-area">
+                            <div class="row top-area">
+                                <div class="col-lg-6 map-area">
+                                    <div id="map{{event.time_start}}" class="map"></div>
+                                </div>
+                                <div class="col-lg-6 parking-address">
+                                    <span class="position-title">{{vm.region.type}}</span>
+                                    <span class="parking-title-from">с {{vm.eventMore.time_start | date:'HH:mm dd.MM'}}</span>
+                                    <span class="parking-title-to">по {{vm.eventMore.time_end | date:'HH:mm dd.MM'}}</span>
+                                    <span class="position-address">{{vm.region.name}}</span>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row bottom-area">
+                                <div class="col-lg-6 interests-area">
+                                    <p>Точки интереса в области стоянки:</p>
+                                    <ul>
+                                        <li ng-repeat="row in vm.eventMorePoi track by $index">- {{row.name}}, {{row.distance}} м.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 category-area">
+                                    <p class="category-area-title">Предпочтительные категории текущего водителя:</p>
+                                    <canvas id="base"
+                                            class="chart-horizontal-bar"
+                                            chart-data="vm.regionChart"
+                                            chart-labels="vm.regionChartLabel">
+                                    </canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-accordion>
+            </div>
+
+        </div>
+        <http-error></http-error>
+    </div>
+    <div id="scriptArea">
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxrJsPPf5hKLa3dVmIZkO8D-Qg2UbPJUU"></script>
+    </div>
+</div>

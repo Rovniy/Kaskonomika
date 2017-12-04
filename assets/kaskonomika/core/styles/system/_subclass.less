@@ -1,0 +1,107 @@
+/**
+ * Created by Ravy on 23.05.2017.
+ */
+.margin-auto {
+  margin: auto!important;
+}
+
+.ta-center {
+  text-align: center!important;
+}
+
+.p-zero {
+  padding: 0;
+}
+
+//TODO Включить перед релизом
+.noselect {
+  /*-ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;*/
+}
+
+.debug {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  font: 16px/30px @fm-web;
+  z-index: 20;
+}
+
+
+
+/* DASHBOARD CHART */
+/* Pie Chart */
+/* Pie Chart */
+.progress-pie-chart {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #eeeeee;
+  position: relative;
+  transform: rotate(-130deg);
+  margin: 20px auto;
+  &.gt-50 {
+    background-color: @color-blue;
+    .ppc-progress {
+      clip: rect(0, 100px, 200px, 0);
+      .ppc-progress-fill {
+        clip: rect(0, 200px, 200px, 100px);
+        background: #eeeeee;
+      }
+    }
+  }
+  .ppc-progress {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    left: -3px;
+    top: -1px;
+    width: 202px;
+    height: 202px;
+    clip: rect(0, 200px, 200px, 100px);
+    .ppc-progress-fill {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 200px;
+      clip: rect(0, 100px, 200px, 0);
+      background: @color-blue;
+      transform: rotate(60deg);
+    }
+  }
+  .ppc-percents {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    left: 10px;
+    top: 10px;
+    width: 180px;
+    height: 180px;
+    background: #fff;
+    text-align: center;
+    display: table;
+    .pcc-percents-wrapper {
+      display: table-cell;
+      vertical-align: middle;
+      transform: rotate(130deg);
+      span {
+        display: block;
+        font: 40px/20px @fm-bold;
+        color: #000;
+        small {
+          font: 14px/1px @fm-main;
+          color: #000;
+        }
+      }
+    }
+  }
+}

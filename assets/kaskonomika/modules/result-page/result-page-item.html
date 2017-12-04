@@ -1,0 +1,53 @@
+<div class="item animated bounceIn" ng-repeat="row in vm.resultList track by $index" ng-if="row.is_error != 1">
+    <div class="row top-area">
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+            <img class="issure-logo" ng-src="{{row.insurance_company.logotype.path}}"/>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col">
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 col p-top-n">
+                <div class="item-title-area">
+                    <span>{{row.calculations_product_name}}</span>
+                </div>
+                <div class="item-cost-area">
+                    <div class="cost-item">
+                        <h3>{{row.calculation_parameters.franchise_value || 0}} <i class="fa fa-rub"></i><br/>
+                            <span class="cost-item-type">Франшиза</span>
+                        </h3>
+                    </div>
+                    <div class="cost-item">
+                        <h3>{{row.calculation_parameters.minimal_mileage || 0}} <i class="fa fa-rub"></i><br/>
+                            <span class="cost-item-type">Пробег</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col p-top-n">
+                <h3 class="issure-price">{{row.total_sum | number: 0}} <i class="fa fa-rub"></i>*<br/>
+                    <span class="cost-item-type">Предварительная</br>цена</span>
+                </h3>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 col">
+            <button class="issue-btn" ng-click="vm.goFillingInsurance(row.calculations_product_id, row.calculation_id)">Оформить</button>
+        </div>
+        <hr/>
+    </div>
+    <div class="bottom-area">
+        <button ng-click="showPopover = !showPopover">
+            <span ng-show="!showPopover">Показать подробнее<i class="fa fa-caret-down"></i></span>
+            <span ng-show="showPopover">Скрыть подробнее<i class="fa fa-caret-up"></i></span>
+        </button>
+    </div>
+    <div class="popover-area" ng-if='showPopover'>
+        <div class="popover-item" ng-repeat="(key,item) in row.types track by $index">
+            <h4 class="popover-item-title">{{key}}</h4>
+            <ul>
+                <li ng-repeat="sub in item | orderBy: '-is_included'">
+                    <i ng-show="sub.is_included == '1'" class="fa fa-check color-blue"></i>
+                    <i ng-show="sub.is_included == '0'" class="fa fa-minus color-grey"></i>
+                    <span ng-class="{'color-grey' : sub.is_included == '0'}">{{sub.name}}{{sub.description.length > 0 ? ':' : ''}} <b ng-if="sub.description.length > 0">{{sub.description}}</b></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
